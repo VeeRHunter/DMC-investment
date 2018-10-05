@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="dmc.australia.com" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Digital Mining Corp Australia</name>
+<widget id="dmc.investment.com" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>DMC investment</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -90,6 +90,5 @@
     <plugin name="cordova-plugin-fingerprint-aio" spec="^1.3.8" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-    <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
     <engine name="android" spec="~6.3.0" />
 </widget>

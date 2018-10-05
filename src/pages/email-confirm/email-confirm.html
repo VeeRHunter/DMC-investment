@@ -12,7 +12,7 @@
       <ion-icon name="md-close" (click)="goback()" class="menu-icon"></ion-icon>
     </ion-row>
 
-    <ion-row class="logo-row first-row">
+    <ion-row class="new-logo-row first-row">
       <img class="logo-image" src="assets/imgs/logo.png" />
     </ion-row>
 
@@ -25,7 +25,8 @@
         </ion-row>
         <ion-row class="user-input-row" *ngIf="!confirmEmail">
           <mat-form-field>
-            <input matInput type="email" [formControl]="emailCtrl" placeholder="Email Address" [(ngModel)]="otherEmail" required name="otheremail">
+            <input matInput type="email" [formControl]="emailCtrl" placeholder="Email Address" [(ngModel)]="otherEmail"
+              required name="otheremail">
             <mat-error *ngIf="emailCtrl.hasError('email') && !emailCtrl.hasError('required')">
               Please input valid email address.
             </mat-error>

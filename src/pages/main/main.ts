@@ -34,17 +34,10 @@ export class MainPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MainPage');
-    // this.orgInvestment = 3000000;
-    // this.dailyYield = 82.19178990;
-    // this.realLiveFeed = this.orgInvestment + this.dailyYield;
-    // this.liveFeed = this.changeToDecimal(this.orgInvestment + this.dailyYield);
-    // // console.log(this.orgInvestment.toFixed(2));
-    // this.calculateLiveFeed();
     this.getLiveData();
   }
 
   getLiveData() {
-    console.log("aslhdfkjahlsdjkf");
     this.userData.email = localStorage.getItem("useremail");
     let loading = this.loadingCtrl.create({
       content: "Please Wait..."
@@ -52,7 +45,7 @@ export class MainPage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      // console.log(result);
+      console.log(result);
       if (Object(result).status == "success") {
         this.orgInvestment = this.changeToDecimal(Object(result).liveFeed.original_investment);
         this.dailyYield = parseFloat(Object(result).liveFeed.daily_yeild);
@@ -115,7 +108,7 @@ export class MainPage {
   }
 
   gotoRealEstate() {
-    this.navCtrl.push('RealEastatePage');
+    this.navCtrl.push('PendingPage');
   }
 
   gotoTransaction() {

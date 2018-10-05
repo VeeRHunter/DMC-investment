@@ -3,7 +3,6 @@ import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { FcmProvider } from '../providers/fcm/fcm';
 
 import { ToastController } from 'ionic-angular';
 // import { Subject } from 'rxjs/Subject';
@@ -20,7 +19,7 @@ export class MyApp {
   public bottom_pages: Array<{ title: string, component: any, image: string }>;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, fcm: FcmProvider, toastCtrl: ToastController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, toastCtrl: ToastController) {
 
     this.ionicInit();
     platform.ready().then(() => {
@@ -61,12 +60,13 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: 'WelcomePage', image: "md-home" },
       { title: 'Live Feed', component: 'MainPage', image: "md-globe" },
-      { title: 'Real Estate', component: 'RealEastatePage', image: "md-card" },
-      { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
-      { title: 'Account', component: 'AccountPage', image: "md-person" },
-      { title: 'SMSF', component: 'SmsfPage', image: "md-card" },
-      { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
-      { title: 'Setting', component: 'SettingPage', image: "md-settings" },
+      { title: 'Pending Transactions', component: 'PendingPage', image: "md-card" },
+      { title: 'Transactions', component: 'TransactionPage', image: "md-card" },
+      // { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
+      // { title: 'Account', component: 'AccountPage', image: "md-person" },
+      // { title: 'SMSF', component: 'SmsfPage', image: "md-card" },
+      // { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
+      // { title: 'Setting', component: 'SettingPage', image: "md-settings" },
       { title: 'Log Out', component: null, image: "md-log-out" },
       // { title: 'my_devices', component: MyDevicesPage, image: "devices" }
     ];

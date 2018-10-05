@@ -20,7 +20,7 @@
 
 <ion-content padding>
 
-  <ion-row class="logo-row first-row">
+  <ion-row class="new-logo-row first-row">
     <img class="logo-image" src="assets/imgs/logo.png" />
   </ion-row>
 
@@ -45,8 +45,8 @@
 
     <ion-row class="user-input-row">
       <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="Email Address" [formControl]="emailFormControl" [(ngModel)]="userData.email" required
-          name="emailaddress">
+        <input matInput type="email" placeholder="Email Address" [formControl]="emailFormControl" [(ngModel)]="userData.email"
+          required name="emailaddress">
 
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please input valid email address.
@@ -72,7 +72,8 @@
 
       <ion-col col-12>
         <ion-row class="full-height">
-          <ion-datetime displayFormat="MM/DD/YYYY" min="1950" max="2018" yearValues="{{yearList}}" placeholder="Date Of Birth" [(ngModel)]="userData.DOB" required name="dob">
+          <ion-datetime displayFormat="MM/DD/YYYY" min="1950" max="2018" yearValues="{{yearList}}" placeholder="Date Of Birth"
+            [(ngModel)]="userData.DOB" required name="dob">
           </ion-datetime>
         </ion-row>
       </ion-col>
@@ -136,16 +137,17 @@
 
     <ion-row class="user-input-row">
       <mat-form-field class="example-full-width">
-        <input matInput type="{{uniqueType}}" [formControl]="uniqueCtrl" [(ngModel)]="userData.uniqueField" placeholder="{{uniquePlace}}" required name="uniquefield">
+        <input matInput type="{{uniqueType}}" [formControl]="uniqueCtrl" [(ngModel)]="userData.uniqueField" placeholder="{{uniquePlace}}"
+          required name="uniquefield">
 
         <mat-error *ngIf="uniqueCtrl.hasError('required')">
           Unique Field is required.
         </mat-error>
-        
+
         <mat-error *ngIf="uniqueCtrl.hasError('pattern') && userData.uniqueField != '' && uniqueType == 'number'">
           Please input valid Unique with {{uniqueLength}} digitals.
         </mat-error>
-        
+
         <mat-error *ngIf="uniqueCtrl.hasError('pattern') && userData.uniqueField != '' && uniqueType == 'text'">
           Please input valid Unique with {{uniqueLength}} digitals and letters.
         </mat-error>
@@ -180,7 +182,8 @@
 
     <ion-row class="user-input-row">
       <mat-form-field class="example-full-width">
-        <input matInput type="number" [formControl]="pinControl" placeholder="PIN" [(ngModel)]="userData.pincode" required name="pincode">
+        <input matInput type="number" [formControl]="pinControl" placeholder="PIN" [(ngModel)]="userData.pincode"
+          required name="pincode">
         <mat-error *ngIf="pinControl.hasError('required')">
           PIN is required.
         </mat-error>
@@ -194,8 +197,8 @@
 
     <ion-row class="user-input-row">
       <mat-form-field class="example-full-width">
-        <input matInput type="number" [formControl]="rePinControl" placeholder="Re-enter PIN" [(ngModel)]="userData.repincode" required
-          name="repincode">
+        <input matInput type="number" [formControl]="rePinControl" placeholder="Re-enter PIN" [(ngModel)]="userData.repincode"
+          required name="repincode">
 
         <ion-row class="mat-error-show" *ngIf="(userData.pincode != userData.repincode && userData.repincode != '') || (userData.repincode == '' && clickSignUp)">
           PIN Mismatch.

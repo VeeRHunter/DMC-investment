@@ -20,16 +20,23 @@
 
 <ion-content padding>
 
-  <ion-row class="logo-row first-row">
+  <ion-row class="new-logo-row first-row">
     <img class="logo-image" src="assets/imgs/logo.png" />
+  </ion-row>
+
+  <ion-row class="new-logo-title">
+    <span>
+      BCR<br>
+      Property Group Australia
+    </span>
   </ion-row>
 
   <form #userProfile="ngForm" id="userProfile" (ngSubmit)="Login(userProfile)" novalidate>
 
     <ion-row class="user-input-row">
       <mat-form-field class="example-full-width">
-        <input matInput type="email" placeholder="Email Address" [formControl]="emailFormControl" [(ngModel)]="userData.email" required
-          name="emailaddress">
+        <input matInput type="email" placeholder="Email Address" [formControl]="emailFormControl" [(ngModel)]="userData.email"
+          required name="emailaddress">
 
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please input valid email address.

@@ -66,18 +66,18 @@ export class PendingDetailPage {
     this.transactionData = JSON.parse(localStorage.getItem("selectedPending"));
     this.originalInvestment = localStorage.getItem("pendingTotal");
     this.userData.email = localStorage.getItem("useremail");
-    let currentItem = JSON.parse(localStorage.getItem("tradeItem"));
-    this.propertyAddress1 = currentItem.property_address1;
-    this.propertyAddress2 = currentItem.property_address2;
-    if (this.propertyAddress2 == "") {
-      this.addressName = this.propertyAddress1;
-    } else {
-      this.addressName = this.propertyAddress1 + " " + this.propertyAddress2;
-    }
-    this.propertyCity = currentItem.property_city;
-    this.propertyState = currentItem.property_state;
-    this.propertyPostcode = currentItem.property_postcode;
-    this.propertyCountry = currentItem.property_country;
+    // let currentItem = JSON.parse(localStorage.getItem("tradeItem"));
+    // this.propertyAddress1 = currentItem.property_address1;
+    // this.propertyAddress2 = currentItem.property_address2;
+    // if (this.propertyAddress2 == "") {
+    //   this.addressName = this.propertyAddress1;
+    // } else {
+    //   this.addressName = this.propertyAddress1 + " " + this.propertyAddress2;
+    // }
+    // this.propertyCity = currentItem.property_city;
+    // this.propertyState = currentItem.property_state;
+    // this.propertyPostcode = currentItem.property_postcode;
+    // this.propertyCountry = currentItem.property_country;
   }
 
   viewPDF() {

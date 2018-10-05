@@ -3,7 +3,7 @@ page-welcome {
         width: 30%;
     }
     .welcome-row {
-        margin-top: 15%;
+        margin-top: 5%;
         color: #5b5b5b;
         .small-des {
             width: 100%;
@@ -52,15 +52,13 @@ page-welcome {
         }
     }
     .portfolio-row {
-        width: 110%;
-        margin-left: -5%;
-        background-color: #ed7d31;
-        height: 30px;
-        span {
+        button {
             margin: auto;
-            text-align: center;
+            height: 35px;
+            background-color: #ed7d31;
             color: white;
             font-size: 1.8rem;
+            border-radius: 5px;
         }
     }
     .four-part-row {

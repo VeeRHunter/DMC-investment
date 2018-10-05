@@ -1,10 +1,4 @@
 page-initial-login {
-    .logo-row {
-        // margin-bottom: 20px;
-        .logo-image {
-            width: 35%;
-        }
-    }
     .user-input-row {
         width: 80%;
         margin-left: auto;
@@ -22,14 +16,14 @@ page-initial-login {
         position: relative;
     }
     #userProfile {
-        margin-top: 80px;
+        margin-top: 20px;
     }
     .signup-row {
         margin-bottom: 20px;
         .signup-button {
             width: 50%;
             margin: auto;
-            background-color: #0061ff;
+            background-color: #ed7d31;
             border-radius: 5px;
             color: white;
         }

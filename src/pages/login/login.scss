@@ -34,14 +34,14 @@ page-login {
         .access-button {
             margin: auto;
             width: 160px;
-            background-color: #21bacf;
+            background-color: rgba($color: #ed7d31, $alpha: 0.6);
             color: white;
             height: 40px;
             font-size: 18px;
             border-radius: 8px;
         }
         .avail_access {
-            background-color: #2a35e6;
+            background-color: #ed7d31;
             margin: auto;
             width: 50%;
             color: white;
@@ -79,7 +79,7 @@ page-login {
         margin-top: 20px;
         button {
             width: 50%;
-            background-color: #2a35e6;
+            background-color: #ed7d31;
             color: white;
             margin: auto;
             border-radius: 7px;

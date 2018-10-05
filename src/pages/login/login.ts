@@ -46,7 +46,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
     this.userData.email = localStorage.getItem("useremail");
     this.menuCtrl.swipeEnable(false);
-    
+
     // this.getLastLoginTime();
   }
 
@@ -260,6 +260,10 @@ export class LoginPage {
   logOff() {
     localStorage.setItem("loged", "");
     this.navCtrl.setRoot('InitialLoginPage');
+  }
+
+  back() {
+    this.navCtrl.pop();
   }
 
 }

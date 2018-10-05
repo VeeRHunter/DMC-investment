@@ -75,6 +75,10 @@ export class WelcomePage {
     })
   }
 
+  gotoLiveFeed() {
+    this.navCtrl.push('MainPage');
+  }
+
   logOff() {
     localStorage.setItem("loged", "");
     this.navCtrl.setRoot('InitialLoginPage');

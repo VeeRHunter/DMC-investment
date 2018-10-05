@@ -13,7 +13,7 @@
       <ion-icon name="md-close" (click)="goback()" class="menu-icon"></ion-icon>
     </ion-row>
 
-    <ion-row class="logo-row first-row">
+    <ion-row class="new-logo-row first-row">
       <img class="logo-image" src="assets/imgs/logo.png" />
     </ion-row>
 
@@ -21,19 +21,22 @@
       <ion-row class="pin-row">
         <ion-col col-3>
           <ion-row class="full-height">
-            <ion-input type="number" id="input1" #input1 [(ngModel)]="pin1" min="0" max="9" (keyup)="changeInput1(input2)" class="each-input">
+            <ion-input type="number" id="input1" #input1 [(ngModel)]="pin1" min="0" max="9" (keyup)="changeInput1(input2)"
+              class="each-input">
             </ion-input>
           </ion-row>
         </ion-col>
         <ion-col col-3>
           <ion-row class="full-height">
-            <ion-input type="number" #input2 [(ngModel)]="pin2" min="0" max="9" (keyup)="changeInput2(input1, input3)" class="each-input">
+            <ion-input type="number" #input2 [(ngModel)]="pin2" min="0" max="9" (keyup)="changeInput2(input1, input3)"
+              class="each-input">
             </ion-input>
           </ion-row>
         </ion-col>
         <ion-col col-3>
           <ion-row class="full-height">
-            <ion-input type="number" #input3 [(ngModel)]="pin3" min="0" max="9" (keyup)="changeInput3(input2, input4)" class="each-input">
+            <ion-input type="number" #input3 [(ngModel)]="pin3" min="0" max="9" (keyup)="changeInput3(input2, input4)"
+              class="each-input">
             </ion-input>
           </ion-row>
         </ion-col>

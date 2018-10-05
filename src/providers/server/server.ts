@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 // let apiurl: string = "http://192.168.2.146/digitalmining/apiserver/";
 
 
-let apiurl: string = "http://traxprint.asia/index.php";
+let apiurl: string = "http://traxprint.asia/dmc-investment/index.php";
 
 
 @Injectable()

@@ -14,24 +14,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpModule } from '@angular/http';
 
-import { FcmProvider } from '../providers/fcm/fcm';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { ServerProvider } from '../providers/server/server';
 
-import { Firebase } from '@ionic-native/firebase';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
-const firebase = {
-  apiKey: "AIzaSyABnklED1Zls6MD5dJ2I7L8rdhRVLksjzM",
-  authDomain: "digitalminingcorpau-dc32a.firebaseapp.com",
-  databaseURL: "https://digitalminingcorpau-dc32a.firebaseio.com",
-  projectId: "digitalminingcorpau-dc32a",
-  storageBucket: "digitalminingcorpau-dc32a.appspot.com",
-  messagingSenderId: "313767785609"
-};
 
 @NgModule({
   declarations: [
@@ -43,7 +32,6 @@ const firebase = {
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebase),
     AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
@@ -58,8 +46,6 @@ const firebase = {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ServerProvider,
     InAppBrowser,
-    Firebase,
-    FcmProvider,
   ]
 })
 export class AppModule { }
