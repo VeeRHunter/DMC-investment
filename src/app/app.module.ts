@@ -19,8 +19,6 @@ import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { ServerProvider } from '../providers/server/server';
 
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -32,7 +30,6 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    AngularFirestoreModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
