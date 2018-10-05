@@ -1,0 +1,240 @@
+<!--
+  Generated template for the EscrowPendingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-arrow-round-back" (click)="back()" class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row class="logo-row first-row">
+    <img class="logo-image" src="assets/imgs/non-logo.png" />
+  </ion-row>
+
+  <ion-row class="page-title">
+    <span>
+      Escrow
+    </span>
+  </ion-row>
+
+  <ion-row class="transaction-title">
+    <span>Pending Escrow</span>
+  </ion-row>
+
+  <ion-row class="pending-button">
+    <button mat-raised-button (click)="bankDetail()">
+      Bank Details
+    </button>
+    <!-- <ion-icon name="md-checkbox" *ngIf="bankCheck"></ion-icon> -->
+    <img src="assets/imgs/check.png" *ngIf="bankCheck" />
+  </ion-row>
+
+  <ion-row *ngIf="bankShow">
+    <ion-row class="edit-pending">
+      <input matInput type="text" placeholder="Bank Name" [(ngModel)]="bankName">
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <input matInput type="text" placeholder="Account Name" [(ngModel)]="bankAccountName">
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <input matInput type="{{bankType}}" placeholder="BSB" [(ngModel)]="bankBSB">
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <input matInput type="{{bankType}}" placeholder="Account Number" [(ngModel)]="bankAccountNumber">
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <button mat-raised-button (click)="bankSubmit()" *ngIf="!switchSubmit">
+        Submit
+      </button>
+
+      <button mat-raised-button (click)="bankChange()" *ngIf="switchSubmit">
+        Change Bank Details
+      </button>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="pending-button">
+    <button mat-raised-button (click)="verifyAccount()">
+      Verify Account
+    </button>
+    <!-- <ion-icon name="md-checkbox" *ngIf="verifyCheck"></ion-icon> -->
+    <img src="assets/imgs/check.png" *ngIf="verifyCheck" />
+  </ion-row>
+
+  <ion-row *ngIf="verifyShow">
+    <ion-row class="edit-pending">
+      <span class="verify-title">
+        There have been 2 small transactions to your account.
+        <br> Place the 2 amounts into the fields below from your statement
+      </span>
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <span>
+            Amount1
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <ion-col col-2>
+            <ion-row class="full-height">
+              <span class="dollar-symbole">
+                $
+              </span>
+            </ion-row>
+          </ion-col>
+
+          <ion-col col-10>
+            <ion-row class="full-height">
+              <input matInput type="number" [(ngModel)]="verifyAmount1" (focus)="focusOnAmount1()" (focusout)="focusOutAmount1()">
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <span>
+            Amount1
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <ion-col col-2>
+            <ion-row class="full-height">
+              <span class="dollar-symbole">
+                $
+              </span>
+            </ion-row>
+          </ion-col>
+
+          <ion-col col-10>
+            <ion-row class="full-height">
+              <input matInput type="number" [(ngModel)]="verifyAmount2" (focus)="focusOnAmount2()" (focusout)="focusOutAmount2()">
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="edit-pending">
+      <button mat-raised-button (click)="accountSubmit()">
+        Submit
+      </button>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="pending-transaction-title">
+    <span>
+      Pending Transactions
+    </span>
+  </ion-row>
+
+  <ion-row class="each-tran-title">
+    <ion-col col-3>
+      <ion-row class="full-height" (click)="orderDate()">
+        <ion-col col-10>
+          <ion-row class="full-height">
+            <span>
+              Date
+            </span>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-2>
+          <ion-row class="full-height">
+            <ion-icon name="{{dateIconName}}"></ion-icon>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-3 class="tran-left-border">
+      <ion-row class="full-height">
+        <span>
+          Description
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-3 class="tran-left-border">
+      <ion-row class="full-height">
+        <span>
+          Value
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-3 class="tran-left-border">
+      <ion-row class="full-height">
+        <span>
+          Verify transaction
+        </span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="each-tran-detail">
+    <ion-row [ngClass]="{'non-even-tran' : i % 2 == 1, 'even-tran': i % 2 == 0}" *ngFor="let list of pendingList; let i = index">
+      <!-- <ion-row class="even-tran" (click)="gotoTransactionDetail(i)"> -->
+      <ion-col col-3>
+        <ion-row class="full-height" (click)="gotoTransactionDetail(i)">
+          <span>
+            {{list.penDate}}
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-3 class="tran-left-border" (click)="gotoTransactionDetail(i)">
+        <ion-row class="full-height">
+          <span>
+            {{list.penDes}}
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-3 class="tran-left-border" (click)="gotoTransactionDetail(i)">
+        <ion-row class="full-height">
+          <span>
+            ${{list.penValue}}
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-3 class="tran-left-border">
+        <ion-row class="full-height">
+          <span class="verified-span" *ngIf="list.penVerify == 1" (click)="verifyUser(i)">
+            Verified
+          </span>
+
+          <span *ngIf="list.penVerify == 0" (click)="gotoTransactionDetail(i)">
+            Transaction Date Pending
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-row>
+
+
+</ion-content>

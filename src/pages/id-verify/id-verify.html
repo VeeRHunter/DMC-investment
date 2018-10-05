@@ -1,0 +1,53 @@
+<!--
+  Generated template for the IdVerifyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-arrow-round-back" (click)="goback()" class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row class="logo-row first-row">
+    <img class="logo-image" src="assets/imgs/non-logo.png" />
+  </ion-row>
+
+  <ion-row class="page-title">
+    <span>
+      {{pageTitle}}
+    </span>
+  </ion-row>
+
+  <ion-row class="search-row">
+    <button mat-raised-button (click)="searchRealEstate()">
+      Search
+    </button>
+  </ion-row>
+
+  <ion-row class="real-list-row" *ngIf="exitRealList">
+    <ion-row class="real-estate-list" *ngFor="let list of realEstateList; let i = index">
+      <span class="id-list-name">
+        {{list.idName}}
+      </span>
+      <span>
+        {{list.idAddress}}
+      </span>
+      <span>
+        {{list.idPhone}}
+      </span>
+    </ion-row>
+  </ion-row>
+
+</ion-content>

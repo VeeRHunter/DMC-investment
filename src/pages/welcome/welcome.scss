@@ -1,0 +1,85 @@
+page-welcome {
+    .logo-image {
+        width: 30%;
+    }
+    .welcome-row {
+        margin-top: 15%;
+        color: #5b5b5b;
+        .small-des {
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            font-size: 1.8rem;
+        }
+        .big-des {
+            width: 100%;
+            text-align: center;
+            margin: auto;
+            font-size: 2.5rem;
+        }
+    }
+    .vault-row {
+        margin-top: 20px;
+        img {
+            width: 50%;
+            height: 100%;
+            margin: auto;
+        }
+    }
+    .log-des {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        span {
+            color: #6e6e6e;
+            width: 70%;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: auto;
+        }
+    }
+    .identy-row {
+        width: 80%;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: red;
+        color: white;
+        height: 35px;
+        span {
+            font-size: 2rem;
+            margin: auto;
+            padding: 2px 5px;
+        }
+    }
+    .portfolio-row {
+        width: 110%;
+        margin-left: -5%;
+        background-color: #ed7d31;
+        height: 30px;
+        span {
+            margin: auto;
+            text-align: center;
+            color: white;
+            font-size: 1.8rem;
+        }
+    }
+    .four-part-row {
+        margin-top: 20px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        .top-part-row {
+            border-bottom: 1px solid #dc9974;
+        }
+        .left-border {
+            border-left: 1px solid #dc9974;
+        }
+        span {
+            margin: auto;
+            text-align: center;
+            font-size: 1.6rem;
+            color: #929292;
+        }
+    }
+}

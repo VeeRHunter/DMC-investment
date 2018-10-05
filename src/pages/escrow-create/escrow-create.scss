@@ -1,0 +1,158 @@
+page-escrow-create {
+    .logo-image {
+        width: 30%;
+    }
+    .page-title {
+        margin-top: 20px;
+        span {
+            font-size: 2rem;
+            text-align: center;
+            margin: auto;
+        }
+    }
+    .transaction-title {
+        margin-top: 20px;
+        border-top: 1px solid #40598d;
+        border-bottom: 1px solid #40598d;
+        background-color: #4472c4;
+        span {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: auto;
+            padding: 5px 0px;
+        }
+    }
+    .each-create-row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        button {
+            border: 1px solid #40598d;
+            background-color: #4472c4;
+            color: white;
+            margin: auto;
+            width: 90%;
+        }
+        .start-transaction {
+            background-color: #00b050;
+        }
+        img {
+            position: absolute;
+            right: 7%;
+            top: 15%;
+            width: 25px;
+            height: 25px;
+        }
+    }
+    .each-property-row {
+        width: 90%;
+        margin: auto;
+        font-size: 1.7rem;
+        font-weight: 500;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        input {
+            border: none !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+        }
+        ion-datetime {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+            width: 100% !important;
+            padding: 0px;
+        }
+        mat-select {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+        }
+        .full-height {
+            position: relative;
+        }
+        .mat-error-show {
+            display: block;
+            color: #f44336;
+            margin-top: 23px;
+            font-size: 11px;
+            position: absolute;
+        }
+    }
+    .dis-value {
+        width: 90%;
+        margin: auto;
+        font-size: 1.6rem;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        input {
+            border: none !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+        }
+    }
+    .dis-title {
+        width: 90%;
+        margin: auto;
+        font-size: 1.6rem;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .dis-description {
+        width: 90%;
+        margin: auto;
+        font-size: 1.6rem;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        textarea {
+            width: 100%;
+            border: 1px solid #40598d;
+        }
+    }
+    .each-show-row {
+        width: 90%;
+        margin: auto;
+        font-size: 1.5rem;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        input {
+            border: none !important;
+            width: 100% !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.7) !important;
+        }
+    }
+    .input-property-addres {
+        .property-sale-price {
+            ion-col {
+                padding: 0px;
+            }
+            span {
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+            .dollar-symbole {
+                margin-left: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
+        }
+    }
+    .escrow-add {
+        margin-top: 10px;
+        button {
+            border: 1px solid #40598d;
+            background-color: #00b050;
+            color: white;
+            margin: auto;
+            width: 180px;
+        }
+    }
+    .search-escrow-row {
+        width: 90%;
+        margin: auto;
+        button {
+            border: 1px solid #40598d;
+            background-color: #00b050;
+            color: white;
+            margin: auto;
+            width: 180px;
+        }
+    }
+}

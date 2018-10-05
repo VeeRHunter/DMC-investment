@@ -1,0 +1,262 @@
+<!--
+  Generated template for the TradeCenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-arrow-round-back" (click)="goback()" class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-row class="logo-row first-row">
+    <img class="logo-image" src="assets/imgs/non-logo.png" />
+  </ion-row>
+
+  <ion-row class="trade-center-titlee">
+    <span class="trade-title">
+      Trade Centre
+    </span>
+    <span class="real-title">
+      Real-estate
+    </span>
+    <span class="eastate-value">
+      {{smallPageTitle}}
+    </span>
+  </ion-row>
+
+
+  <ion-row class="building-image-row">
+
+    <ion-col col-12>
+      <ion-row class="full-height">
+        <img src="{{buildingImage}}" />
+      </ion-row>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row class="padding-row">
+    <ion-row class="build-des-row">
+      <ion-col col-12>
+        <ion-row class="full-height">
+          <span>
+            {{addressName}}, {{propertyCity}}
+            <br>{{propertyState}}
+            <br>{{propertyPostcode}} {{propertyCountry}}
+          </span>
+        </ion-row>
+      </ion-col>
+      <span class="jointly-owned" *ngIf="switchjointly">
+        Jointly Owned
+      </span>
+    </ion-row>
+
+    <ion-row class="bulding-price">
+      <ion-row class="each-price-row">
+        <ion-col col-7>
+          <ion-row class="full-height">
+            <span>
+              Current MV
+            </span>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-5>
+          <ion-row class="full-height">
+            <span>
+              ${{currentMV}}
+            </span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="each-price-row">
+        <ion-col col-7>
+          <ion-row class="full-height">
+            <span>
+              Equity
+            </span>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-5>
+          <ion-row class="full-height">
+            <span [ngClass]="{'normal-value': jointlyOwned,'equity-value':!jointlyOwned }">
+              {{equityValue}}
+            </span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="each-price-row" *ngIf="switchMortgage">
+        <ion-col col-7>
+          <ion-row class="full-height">
+            <span>
+              Debt Balance
+            </span>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-5>
+          <ion-row class="full-height">
+            <span class="debt-value">
+              {{debtValue}}
+            </span>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="trade-desk">
+    <span>
+      {{tradeTypeTitle}}
+    </span>
+  </ion-row>
+
+  <ion-row class="pending-row" *ngIf="pendingVlaue">
+    <ion-col col-7>
+      <ion-row class="full-height">
+        <button mat-raised-button (click)="gotoPendingPage()">
+          Pending Transactions
+        </button>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-5>
+      <ion-row class="full-height">
+        <span class="pending-value">
+          {{pendingVlaue}}
+        </span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="enter-volume-title">
+    <ion-col col-6></ion-col>
+    <ion-col col-6>
+      <ion-row class="full-height">
+        <span class="right-element">
+          Enter trade volume
+        </span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="trade-detail" id="inputEquity">
+    <ion-col col-6>
+      <ion-row class="full-height">
+        <span>
+          Equity Swap amount
+        </span>
+      </ion-row>
+    </ion-col>
+    <ion-col col-6>
+      <ion-row [ngClass]="{'edit-equity': showEditEquityValue, 'show-equity': !showEditEquityValue}">
+        <mat-form-field>
+          <span matPrefix>$</span>
+          <input type="number" max="{{swapMax}}" (focus)="focusOnEquityValue()" (focusout)="focusOutEquityValue()" [(ngModel)]="equitySwapValue"
+            matInput>
+        </mat-form-field>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="trade-detail">
+    <ion-col col-6>
+      <ion-row class="full-height">
+        <span>
+          Equity Percentage
+        </span>
+      </ion-row>
+    </ion-col>
+    <ion-col col-6>
+      <ion-row class="full-height">
+        <span class="">{{((equitySwapValue/(currentMV-pendingData))*100).toFixed(2)}}%</span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="confirm-part">
+    <ion-col col-2></ion-col>
+    <ion-col col-5>
+      <ion-row class="full-height">
+        <span (click)="confirmTrade()">
+          {{confirmTypeTitle}}
+        </span>
+      </ion-row>
+    </ion-col>
+    <ion-col col-3>
+      <ion-row class="full-height">
+        <img src="assets/imgs/finger.png" />
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="balance-margin-row">
+    <ion-row class="balance-row">
+      <ion-col col-2> </ion-col>
+      <ion-col col-4>
+        <ion-row class="full-height">
+          <span class="balance-title">
+            Balance
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="balance-row">
+      <ion-col col-2> </ion-col>
+      <ion-col col-5>
+        <ion-row class="full-height">
+          <span>
+            Equity
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-3>
+        <ion-row class="full-height">
+          <span class="right-element">
+            {{(100-(equitySwapValue/currentMV)*100).toFixed(2)}}%
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="balance-row">
+      <ion-col col-2> </ion-col>
+      <ion-col col-5>
+        <ion-row class="full-height">
+          <span>
+            DMC Shares
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-3>
+        <ion-row class="full-height">
+          <span class="right-element">
+            {{equitySwapValue}}
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="trax-logo ">
+    <img src="assets/imgs/big-trax.jpg " class="trax-logo-image " />
+  </ion-row>
+
+</ion-content>

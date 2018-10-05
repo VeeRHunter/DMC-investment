@@ -1,0 +1,105 @@
+page-transaction-detail {
+    .logo-image {
+        width: 30%;
+    }
+    .page-title {
+        margin-top: 20px;
+        span {
+            font-size: 2rem;
+            text-align: center;
+            margin: auto;
+        }
+    }
+    .transaction-title {
+        margin-top: 20px;
+        border-top: 1px solid #40598d;
+        border-bottom: 1px solid #40598d;
+        background-color: #4472c4;
+        span {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin: auto;
+            padding: 5px 0px;
+        }
+    }
+    .original-investment {
+        padding: 10px 0px;
+        span {
+            font-size: 1.8rem;
+        }
+    }
+    .each-tran-title {
+        margin-top: 5px;
+        padding-left: 1px;
+        padding-right: 1px;
+        span {
+            color: white;
+            text-align: center;
+            margin: auto;
+            padding: 5px 0px;
+        }
+        ion-col {
+            background-color: #4472c4;
+        }
+        ion-icon {
+            margin: auto;
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+    .tran-left-border {
+        border-left: 1px solid white;
+    }
+    .each-tran-detail {
+        margin-top: 3px;
+        margin-bottom: 30px;
+        span {
+            margin: auto;
+            text-align: center;
+            font-size: 1.3rem;
+            padding: 5px 0px;
+        }
+        .non-even-tran {
+            border-bottom: 1px solid white;
+            background-color: #e9ebf5; // padding: 5px 0px;
+        }
+        .even-tran {
+            border-bottom: 1px solid white;
+            background-color: #cfd5ea; // padding: 5px 0px;
+        }
+    }
+    .view-pdf {
+        margin-top: 60px;
+        margin-bottom: 20px;
+        button {
+            margin: auto;
+            color: white;
+            width: 50%;
+            border: 1px solid #40598d;
+            background-color: #4472c4;
+        }
+    }
+    .email-pdf {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        button {
+            margin: auto;
+            color: white;
+            width: 50%;
+            border: 1px solid #40598d;
+            background-color: #4472c4;
+        }
+    }
+    .back-list {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        button {
+            margin: auto;
+            color: white;
+            width: 50%;
+            border: 1px solid #40598d;
+            background-color: #00b050;
+        }
+    }
+}

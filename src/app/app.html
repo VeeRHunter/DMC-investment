@@ -1,0 +1,23 @@
+<ion-menu [content]="content" side="left">
+
+    <ion-content class="menu-content">
+        <ion-row class="first-menu">
+            <ion-row *ngFor="let p of pages; let i = index;" class="top-menu-content">
+                <ion-col col-2 *ngIf="i != 5">
+                    <ion-row class="full-height">
+                        <!-- <img src="assets/imgs/{{p.image}}.png" class="menu_imageList" alt="" /> -->
+                        <ion-icon name="{{p.image}}" class="menu-imageList" menuClose (click)="openPage(p)"></ion-icon>
+                    </ion-row>
+                </ion-col>
+                <ion-col col-8 *ngIf="i != 5">
+                    <ion-row class="full-height">
+                        <span class="menu-list" menuClose (click)="openPage(p)">{{p.title}}</span>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-row>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

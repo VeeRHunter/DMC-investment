@@ -1,0 +1,41 @@
+page-id-verify {
+    .page-title {
+        margin-top: 20px;
+        span {
+            text-align: center;
+            margin: auto;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    }
+    .search-row {
+        margin-top: 20px;
+        button {
+            width: 50%;
+            margin: auto;
+            background-color: #4472c4;
+            border: 1px solid #2f528f;
+            color: white;
+            font-size: 1.8rem;
+        }
+    }
+    .real-list-row {
+        margin-top: 20px;
+        .real-estate-list {
+            padding: 15px 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            span {
+                padding-left: 10px;
+                width: 100%;
+                text-align: left;
+                margin-top: auto;
+                margin-bottom: auto;
+                font-size: 1.8rem;
+            }
+            .id-list-name {
+                padding-left: unset !important;
+            }
+        }
+    }
+}

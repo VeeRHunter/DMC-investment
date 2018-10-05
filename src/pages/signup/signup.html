@@ -1,0 +1,225 @@
+<!--
+  Generated template for the SignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-arrow-round-back" (click)="goback()" class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row class="logo-row first-row">
+    <img class="logo-image" src="assets/imgs/logo.png" />
+  </ion-row>
+
+  <form #userProfile="ngForm" id="userProfile" (ngSubmit)="signUpUser(userProfile)" novalidate>
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="First Name" [(ngModel)]="userData.firstName" required name="firstname">
+        <mat-error>
+          First Name is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Last Name" [(ngModel)]="userData.lastName" required name="lastname">
+        <mat-error>
+          Last Name is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="email" placeholder="Email Address" [formControl]="emailFormControl" [(ngModel)]="userData.email" required
+          name="emailaddress">
+
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please input valid email address.
+        </mat-error>
+
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email address is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row user-input-dob">
+      <!-- <mat-form-field class="example-full-width"> -->
+      <!-- <input matInput [matDatepicker]="picker" type="date" placeholder="Date Of Birth" [(ngModel)]="userData.DOB" required name="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker  id="matDatePicker"></mat-datepicker>
+      <input matInput type="date" min="2016" max="2020-10-31" placeholder="Date Of Birth" [(ngModel)]="userData.DOB" required name="dob">
+
+      <mat-error>
+          Date Of Birth is required.
+        </mat-error>
+      </mat-form-field> -->
+
+      <ion-col col-12>
+        <ion-row class="full-height">
+          <ion-datetime displayFormat="MM/DD/YYYY" min="1950" max="2018" yearValues="{{yearList}}" placeholder="Date Of Birth" [(ngModel)]="userData.DOB" required name="dob">
+          </ion-datetime>
+        </ion-row>
+      </ion-col>
+
+      <ion-row class="mat-error-show" *ngIf="clickSignUp && userData.DOB == ''">
+        Date Of Birth is required.
+      </ion-row>
+
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="Address" [(ngModel)]="userData.address" required name="address">
+        <mat-error>
+          Address is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="City" [(ngModel)]="userData.city" required name="city">
+        <mat-error>
+          City is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" placeholder="State" [(ngModel)]="userData.state" required name="state">
+        <mat-error>
+          State is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <mat-select [(ngModel)]="userData.country" placeholder="Country" required name="country">
+          <mat-option *ngFor="let list of countryList" [value]="list" (click)="selectCountry()">
+            {{ list }}
+          </mat-option>
+        </mat-select>
+
+        <mat-error>
+          Unique Field is required.
+        </mat-error>
+
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" placeholder="Postcode / Zip Code" [(ngModel)]="userData.postalCode" required name="postalcode">
+        <mat-error>
+          Postcode / Zip Code is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="{{uniqueType}}" [formControl]="uniqueCtrl" [(ngModel)]="userData.uniqueField" placeholder="{{uniquePlace}}" required name="uniquefield">
+
+        <mat-error *ngIf="uniqueCtrl.hasError('required')">
+          Unique Field is required.
+        </mat-error>
+        
+        <mat-error *ngIf="uniqueCtrl.hasError('pattern') && userData.uniqueField != '' && uniqueType == 'number'">
+          Please input valid Unique with {{uniqueLength}} digitals.
+        </mat-error>
+        
+        <mat-error *ngIf="uniqueCtrl.hasError('pattern') && userData.uniqueField != '' && uniqueType == 'text'">
+          Please input valid Unique with {{uniqueLength}} digitals and letters.
+        </mat-error>
+
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Password" [(ngModel)]="userData.password" required name="password">
+        <mat-error>
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="password" [formControl]="rePasswordControl" placeholder="Re-enter password" [(ngModel)]="userData.repassword"
+          required name="repassword">
+
+        <ion-row class="mat-error-show" *ngIf="(userData.password != userData.repassword && userData.repassword != '') || (userData.repassword == '' && clickSignUp)">
+          Password Mismatch.
+        </ion-row>
+
+        <ion-row class="mat-error-show" *ngIf="rePasswordControl.touched && userData.repassword == ''">
+          Confirm Password is required.
+        </ion-row>
+      </mat-form-field>
+
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" [formControl]="pinControl" placeholder="PIN" [(ngModel)]="userData.pincode" required name="pincode">
+        <mat-error *ngIf="pinControl.hasError('required')">
+          PIN is required.
+        </mat-error>
+
+        <mat-error *ngIf="pinControl.hasError('pattern') && userData.pincode != ''">
+          Please input 4 digits.
+        </mat-error>
+
+      </mat-form-field>
+    </ion-row>
+
+    <ion-row class="user-input-row">
+      <mat-form-field class="example-full-width">
+        <input matInput type="number" [formControl]="rePinControl" placeholder="Re-enter PIN" [(ngModel)]="userData.repincode" required
+          name="repincode">
+
+        <ion-row class="mat-error-show" *ngIf="(userData.pincode != userData.repincode && userData.repincode != '') || (userData.repincode == '' && clickSignUp)">
+          PIN Mismatch.
+        </ion-row>
+
+        <ion-row class="mat-error-show" *ngIf="rePinControl.touched && userData.repincode == ''">
+          Confirm PIN is required.
+        </ion-row>
+      </mat-form-field>
+
+      <!-- <ion-row class="mat-error-show" *ngIf="(userData.pincode != userData.repincode) || (userData.repincode == '' && clickSignUp)">
+        Confirm PIN is required.
+      </ion-row> -->
+    </ion-row>
+
+    <ion-row class="signup-row">
+      <button mat-raised-button class="signup-button">
+        Sign Up
+      </button>
+    </ion-row>
+
+
+
+
+  </form>
+
+</ion-content>

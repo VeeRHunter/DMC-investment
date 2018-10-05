@@ -1,0 +1,59 @@
+page-signup {
+    .user-input-row {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto; // height: 35px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+    #userProfile {
+        margin-top: 30px;
+    }
+    .signup-row {
+        margin-bottom: 10px;
+        .signup-button {
+            width: 50%;
+            margin: auto;
+            background-color: #0061ff;
+            border-radius: 5px;
+            color: white;
+        }
+    }
+    .mat-error-show {
+        display: block;
+        color: #f44336;
+        margin-top: 10px;
+        font-size: 11px;
+        position: absolute;
+    }
+    .user-input-dob {
+        border-bottom: 1px solid #a16c92;
+        margin-bottom: 20px;
+        margin-top: -10px;
+        ion-col {
+            padding: unset;
+        }
+        span {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        ion-datetime {
+            text-align: left;
+            margin-top: auto;
+            margin-bottom: auto;
+            padding-left: unset !important;
+        }
+        ion-item {
+            padding-left: unset !important;
+            font-size: 1.6rem !important;
+            .item-inner {
+                border-bottom: unset !important;
+                padding-right: unset !important;
+            }
+        }
+        .mat-error-show {
+            bottom: -15px;
+        }
+    }
+}

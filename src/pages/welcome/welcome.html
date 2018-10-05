@@ -1,0 +1,104 @@
+<!--
+  Generated template for the WelcomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-menu" menuToggle class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-row class="logo-row first-row">
+    <img class="logo-image" src="assets/imgs/non-logo.png" />
+  </ion-row>
+
+  <ion-row class="welcome-row">
+    <span class="small-des">
+      Welcome to your
+      <br> investment vault
+    </span>
+    <span class="big-des">
+      {{lastLoginUserName}}
+    </span>
+  </ion-row>
+
+  <ion-row class="vault-row">
+    <img src="assets/imgs/vault.jpg" />
+  </ion-row>
+
+  <ion-row class="log-des">
+    <span>
+      You last logged on at {{lastLoginTime}}
+    </span>
+  </ion-row>
+
+  <ion-row class="identy-row" *ngIf="!userVerified">
+    <span (click)="verifyId()">
+      Please verify your identity
+    </span>
+  </ion-row>
+
+  <!-- <ion-row class="log-off-row">
+    <button mat-raised-button (click)="logOff()">
+      Log off
+    </button>
+  </ion-row> -->
+
+  <ion-row class="portfolio-row">
+    <span>
+      PORTFOLIO
+    </span>
+  </ion-row>
+
+  <ion-row class="four-part-row">
+    <ion-row class="top-part-row">
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <span (click)="gotoRealEstate()">
+            REALESTATE
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6 class="left-border">
+        <ion-row class="full-height">
+          <span (click)="gotoAccount()">
+            ACCOUNT
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row class="bottom-part">
+      <ion-col col-6>
+        <ion-row class="full-height">
+          <span (click)="gotoSMSF()">
+            SMSF
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-6 class="left-border">
+        <ion-row class="full-height">
+          <span (click)="gotoEscrow()">
+            ESCROW
+          </span>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="trax-logo ">
+    <img src="assets/imgs/big-trax.jpg " class="trax-logo-image " />
+  </ion-row>
+
+</ion-content>
