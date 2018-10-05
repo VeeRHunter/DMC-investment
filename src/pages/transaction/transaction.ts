@@ -160,4 +160,8 @@ export class TransactionPage {
     return time;
   }
 
+  back() {
+    this.navCtrl.pop();
+  }
+
 }
