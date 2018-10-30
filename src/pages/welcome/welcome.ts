@@ -83,18 +83,6 @@ export class WelcomePage {
     localStorage.setItem("loged", "");
     this.navCtrl.setRoot('InitialLoginPage');
   }
-  gotoRealEstate() {
-    this.navCtrl.push('MainPage');
-  }
-  gotoAccount() {
-    this.navCtrl.push('AccountPage');
-  }
-  gotoSMSF() {
-    this.navCtrl.push('SmsfPage');
-  }
-  gotoEscrow() {
-    this.navCtrl.push('EascrowPage');
-  }
 
   verifyId() {
     localStorage.setItem("verifyType", "idVerify");

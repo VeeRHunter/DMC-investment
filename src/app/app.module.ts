@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 
-import { Camera } from '@ionic-native/camera';
 import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -38,7 +37,6 @@ import { ServerProvider } from '../providers/server/server';
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
     FingerprintAIO,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ServerProvider,

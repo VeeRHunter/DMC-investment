@@ -62,11 +62,6 @@ export class MyApp {
       { title: 'Live Feed', component: 'MainPage', image: "md-globe" },
       { title: 'Pending Transactions', component: 'PendingPage', image: "md-card" },
       { title: 'Transactions', component: 'TransactionPage', image: "md-card" },
-      // { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
-      // { title: 'Account', component: 'AccountPage', image: "md-person" },
-      // { title: 'SMSF', component: 'SmsfPage', image: "md-card" },
-      // { title: 'Escrow', component: 'EascrowPage', image: "md-card" },
-      // { title: 'Setting', component: 'SettingPage', image: "md-settings" },
       { title: 'Log Out', component: null, image: "md-log-out" },
       // { title: 'my_devices', component: MyDevicesPage, image: "devices" }
     ];
