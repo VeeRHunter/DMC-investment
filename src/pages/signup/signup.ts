@@ -35,13 +35,13 @@ export class SignupPage {
     Validators.required
   ]);
 
-  public uniqueCtrl = new FormControl('', [
-    Validators.required,
-  ]);
+  // public uniqueCtrl = new FormControl('', [
+  //   Validators.required,
+  // ]);
 
   public uniqueLength: any;
 
-  public userData = { "firstName": "", "lastName": "", "email": "", "DOB": "", "address": "", "city": "", "state": "", "country": "", "postalCode": "", "uniqueField": "", "password": "", "repassword": "", "pincode": "", "repincode": "", "apiState": "signup" };
+  public userData = { "firstName": "", "lastName": "", "email": "", "DOB": "", "address": "", "city": "", "state": "", "country": "", "postalCode": "", "uniqueField": "000000000", "password": "", "repassword": "", "pincode": "", "repincode": "", "apiState": "signup" };
 
   public countryList: any[];
   public totalList: any[];
@@ -61,7 +61,7 @@ export class SignupPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
-    this.uniquePlace = "Unique Field";
+    // this.uniquePlace = "Unique Field";
     this.yearList = new Array();
     this.currentYear = parseInt(new Date().toLocaleDateString().split("/")[2]);
     for (let i = 1950; i < this.currentYear + 1; i++) {
@@ -154,30 +154,30 @@ export class SignupPage {
   }
 
   selectCountry() {
-    if (this.userData.country == "") {
-      this.uniquePlace = "Unique Field";
-    } else {
-      for (let list of this.totalList) {
-        if (this.userData.country == list.uc_country) {
-          this.uniquePlace = list.uc_field_name;
-          this.uniqueLength = list.uc_characters;
-          if (list.uc_letters == "0") {
-            this.uniqueType = "number";
+    // if (this.userData.country == "") {
+    //   this.uniquePlace = "Unique Field";
+    // } else {
+    //   for (let list of this.totalList) {
+    //     if (this.userData.country == list.uc_country) {
+    //       this.uniquePlace = list.uc_field_name;
+    //       this.uniqueLength = list.uc_characters;
+    //       if (list.uc_letters == "0") {
+    //         this.uniqueType = "number";
 
-            this.uniqueCtrl.setValidators(
-              Validators.pattern("[0-9]{" + list.uc_characters + "}$")
-            );
-          } else {
-            this.uniqueType = "text";
+    //         this.uniqueCtrl.setValidators(
+    //           Validators.pattern("[0-9]{" + list.uc_characters + "}$")
+    //         );
+    //       } else {
+    //         this.uniqueType = "text";
 
-            this.uniqueCtrl.setValidators(
-              Validators.pattern("[A-Za-z0-9]{" + list.uc_characters + "}$")
-            );
-          }
+    //         this.uniqueCtrl.setValidators(
+    //           Validators.pattern("[A-Za-z0-9]{" + list.uc_characters + "}$")
+    //         );
+    //       }
 
-        }
-      }
-    }
+    //     }
+    //   }
+    // }
   }
 
 }
