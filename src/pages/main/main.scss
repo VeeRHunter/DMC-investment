@@ -51,18 +51,19 @@ page-main {
         }
     }
     .live-feed {
-        margin-top: 30px;
-        button {
-            width: 35%;
+        span {
+            width: 100px;
             color: white;
-            background-color: #b1dd8c;
-            margin: auto;
+            background-color: #b1dd8c; // margin: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            text-align: center;
             color: black;
+            padding-top: 7px;
+            padding-bottom: 7px;
         }
     }
     .live-feed-value {
-        margin-top: 20px;
-        margin-bottom: 10px;
         span {
             color: #548235;
             font-size: 2.7rem;
@@ -125,6 +126,13 @@ page-main {
             padding: 1px 0px;
             margin: auto;
             border-radius: 8px;
+        }
+    }
+    .graph-row {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        mat-form-field{
+            margin-top: 20px;
         }
     }
 }

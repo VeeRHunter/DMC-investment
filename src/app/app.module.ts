@@ -16,6 +16,7 @@ import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { ServerProvider } from '../providers/server/server';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -29,6 +30,7 @@ import { ServerProvider } from '../providers/server/server';
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
+    ChartsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

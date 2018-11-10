@@ -70,16 +70,59 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="live-feed">
-    <button mat-raised-button (click)="liveFeedCall()">
-      LIVE FEED
-    </button>
+  <ion-row>
+    <ion-col col-4>
+      <ion-row class="full-height">
+        <ion-row class="live-feed">
+          <span mat-raised-button (click)="liveFeedCall()">
+            LIVE FEED
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+    <ion-col col-8>
+      <ion-row class="full-height">
+
+        <ion-row class="live-feed-value">
+          <span>
+            ${{liveFeed}}
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
   </ion-row>
 
-  <ion-row class="live-feed-value">
-    <span>
-      ${{liveFeed}}
-    </span>
+  <ion-row class="graph-row" *ngIf="enableShowChat">
+    <ion-row style="display: block;">
+      <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </ion-row>
+    <ion-row class="select-type">
+      <!-- <ion-col col-6>
+        <ion-row class="full-height">
+          <span>
+            Please select type
+          </span>
+        </ion-row>
+      </ion-col> -->
+      <ion-col col-12>
+        <ion-row class="full-height">
+          <mat-form-field class="example-full-width">
+            <mat-select [(ngModel)]="dataType" placeholder="Please select type" required name="datatype">
+              <mat-option *ngFor="let list of dataList; let i = index" [value]="list" (click)="selectType(i)">
+                {{ list }}
+              </mat-option>
+            </mat-select>
+
+            <mat-error>
+              Unique Field is required.
+            </mat-error>
+
+          </mat-form-field>
+        </ion-row>
+      </ion-col>
+    </ion-row>
   </ion-row>
 
   <ion-row class="trade-centre">
