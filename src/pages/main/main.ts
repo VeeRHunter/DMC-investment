@@ -44,12 +44,13 @@ export class MainPage {
   public enableShowChat = false;
 
   public lineChartData: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Gold', lineTension: 0 },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Silver', lineTension: 0 },
-    { data: [23, 38, 48, 89, 26, 67, 20], label: 'USD', lineTension: 0 },
-    { data: [18, 48, 77, 9, 100, 27, 40], label: 'AUD', lineTension: 0 }
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Gold', fill: false, lineTension: 0 },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Silver', fill: false, lineTension: 0 },
+    { data: [23, 38, 48, 89, 26, 67, 20], label: 'USD', fill: false, lineTension: 0 },
+    { data: [18, 48, 77, 9, 100, 27, 40], label: 'AUD', fill: false, lineTension: 0 }
   ];
   // public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
   public lineChartLabels: Array<any> = [1, 2, 3, 4, 5, 6, 7];
   public lineChartOptions: any = {
     responsive: true,
@@ -212,6 +213,7 @@ export class MainPage {
 
   setChatColors() {
     this.lineChartColors = new Array();
+    this.lineChartColors.length = 0;
     for (let list of this.chartColors) {
       let eachColor = {
         backgroundColor: '',
@@ -221,14 +223,16 @@ export class MainPage {
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: ''
       }
-      eachColor.backgroundColor = list + "33";
+      eachColor.backgroundColor = 'transparent';
       eachColor.borderColor = list;
       eachColor.pointBackgroundColor = list;
       eachColor.pointHoverBorderColor = list;
       this.lineChartColors.push(eachColor);
-      console.log("set enable");
     }
-    this.enableShowChat = true;
+    // console.log(baseChart)
+    setTimeout(() => {
+      this.enableShowChat = true;
+    }, 1000);
 
   }
 

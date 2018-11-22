@@ -110,6 +110,7 @@ export class SignupPage {
 
   signUpUser(userProfile) {
     this.clickSignUp = true;
+    console.log(userProfile);
     if (userProfile.valid && this.userData.password == this.userData.repassword && this.userData.pincode == this.userData.repincode) {
       console.log(JSON.stringify(this.userData));
       console.log(this.userData);
