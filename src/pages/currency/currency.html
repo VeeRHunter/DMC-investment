@@ -1,0 +1,69 @@
+<!--
+  Generated template for the CurrencyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+  <ion-row class="total-balance">
+    <span>
+      Total Balance
+    </span>
+  </ion-row>
+  <ion-row class="total-value">
+    <span>
+      US$45,768.13
+    </span>
+  </ion-row>
+  <ion-row class="total-bonus">
+    <span>
+      +$164.42 (4.6%)
+    </span>
+  </ion-row>
+  <ion-row class="graph-row">
+    <ion-card *ngFor="let list of showTotalData; let i = index" (click)="gotoDetail(i)">
+
+      <ion-card-header>
+        <ion-row class="card-header">
+          <ion-col col-6>
+            <ion-row class="full-height left-element">
+              <ion-row class="big-ttle">
+                <span>
+                  {{list.bigTitle}}
+                </span>
+              </ion-row>
+              <ion-row class="small-title">
+                <span>
+                  {{list.smallTitle}}
+                </span>
+              </ion-row>
+            </ion-row>
+          </ion-col>
+
+          <ion-col col-6>
+            <ion-row class="full-height right-element">
+              <ion-row class="big-ttle">
+                <span>
+                  {{list.totalValue}}
+                </span>
+              </ion-row>
+              <ion-row [ngClass]="{'small-normal-title':!list.classState, 'small-red-title':list.classState}">
+                <span>
+                  {{list.changeValue}} ({{list.chanagePercent}})
+                </span>
+              </ion-row>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+
+      <ion-card-content *ngIf="enableShow">
+        <canvas baseChart width="100%" height="50" [datasets]="list.lineChartData" [labels]="list.lineChartLabels"
+          [options]="list.lineChartOptions" [colors]="list.lineChartColors" [chartType]="list.lineChartType"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+        </canvas>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-row>
+</ion-content>

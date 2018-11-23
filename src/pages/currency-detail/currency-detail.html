@@ -1,0 +1,146 @@
+<!--
+  Generated template for the CurrencyDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="header-row">
+
+  <ion-row class="header-component">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <ion-icon name="md-arrow-round-back" (click)="back()" class="menu-icon">
+        </ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+</ion-header>
+<ion-content padding *ngIf="chatData != null">
+  <ion-row class="total-balance">
+    <span>
+      {{chatData.bigTitle}} Price
+    </span>
+  </ion-row>
+  <ion-row class="total-value">
+    <span>
+      {{chatData.totalValue}}
+    </span>
+  </ion-row>
+  <ion-row [ngClass]="{'small-normal-title':!chatData.classState, 'small-red-title':chatData.classState}">
+    <span>
+      {{chatData.changeValue}} ({{chatData.chanagePercent}})
+    </span>
+  </ion-row>
+  <ion-row class="graph-detail">
+    <canvas baseChart [datasets]="chatData.lineChartData" [labels]="chatData.lineChartLabels" [options]="chatData.lineChartOptions"
+      [colors]="chatData.lineChartColors" [chartType]="chatData.lineChartType" (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)">
+    </canvas>
+
+    <ion-row class="vertical-line vertical-line-hour" *ngIf="hourMode">
+      <ion-row class="vertical hour-vertical" *ngFor="let list of axisX_list; let i = index;">
+        <span></span>
+      </ion-row>
+      <ion-row class="number hour-number" *ngFor="let list of axisX_list; let i = index;">
+        <span>
+          {{i*10}}
+        </span>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="vertical-line vertical-line-daily" *ngIf="dailyMode">
+      <ion-row class="vertical daily-vertical" *ngFor="let list of axisX_list; let i = index;">
+        <span></span>
+      </ion-row>
+      <ion-row class="number daily-number" *ngFor="let list of axisX_list; let i = index;">
+        <span>
+          {{i*10}}
+        </span>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="vertical-line vertical-line-week" *ngIf="weeklyMode">
+      <ion-row class="vertical week-vertical" *ngFor="let list of axisX_list; let i = index;">
+        <span></span>
+      </ion-row>
+      <ion-row class="number week-number" *ngFor="let list of axisX_list; let i = index;">
+        <span>
+          {{i*10}}
+        </span>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="vertical-line vertical-line-monthly" *ngIf="monthlyMode">
+      <ion-row class="vertical monthly-vertical" *ngFor="let list of axisX_list; let i = index;">
+        <span></span>
+      </ion-row>
+      <ion-row class="number monthly-number" *ngFor="let list of axisX_list; let i = index;">
+        <span>
+          {{i*10}}
+        </span>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="vertical-line vertical-line-year" *ngIf="yearMode">
+      <ion-row class="vertical year-vertical" *ngFor="let list of axisX_list; let i = index;">
+        <span></span>
+      </ion-row>
+      <ion-row class="number year-number" *ngFor="let list of axisX_list; let i = index;">
+        <span>
+          {{list}}
+        </span>
+      </ion-row>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="select-date-type">
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':hourMode, 'unselect-span':!hourMode}" (click)="hourlyClick()">
+          1H
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':dailyMode, 'unselect-span':!dailyMode}" (click)="dailyClick()">
+          1D
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <!-- <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':weeklyMode, 'unselect-span':!weeklyMode}" (click)="weeklyClick()">
+          1W
+        </span>
+      </ion-row>
+    </ion-col> -->
+
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':monthlyMode, 'unselect-span':!monthlyMode}" (click)="monthlyClick()">
+          1M
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':yearMode, 'unselect-span':!yearMode}" (click)="yearlyClick()">
+          1Y
+        </span>
+      </ion-row>
+    </ion-col>
+
+    <!-- <ion-col col-2>
+      <ion-row class="full-height">
+        <span [ngClass]="{'select-span':allMode, 'unselect-span':!allMode}" (click)="allClick()">
+          All
+        </span>
+      </ion-row>
+    </ion-col> -->
+  </ion-row>
+</ion-content>

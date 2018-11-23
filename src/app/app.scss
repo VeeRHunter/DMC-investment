@@ -87,6 +87,26 @@ ion-row {
     overflow-y: auto;
 }
 
+.left-element {
+    span {
+        text-align: left;
+        float: left;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
+.right-element {
+    span {
+        text-align: right;
+        float: right;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}
+
 //////// Menu List
 .menu-content {
     // height: 80%;

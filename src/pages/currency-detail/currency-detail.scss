@@ -1,0 +1,180 @@
+page-currency-detail {
+    ion-content {
+        background-color: #2a363e !important;
+    }
+    .total-balance {
+        margin-top: 50px;
+        span {
+            color: #979da1;
+        }
+    }
+    .total-value {
+        margin-top: 5px;
+        span {
+            font-size: 35px;
+            font-weight: 500;
+            color: white;
+        }
+    }
+    .total-bonus {
+        margin-top: 5px;
+        span {
+            color: #4bdbbe;
+        }
+    }
+    .big-ttle {
+        span {
+            color: #f9f9f9;
+            font-size: 18px;
+        }
+    }
+    .small-title {
+        color: #899196;
+        font-size: 10px;
+    }
+    .small-normal-title {
+        color: #4cd7bc;
+        font-size: 10px;
+    }
+    .small-red-title {
+        color: #fd5182;
+        font-size: 10px;
+    }
+    .left-element {
+        float: left;
+        text-align: left;
+    }
+    .right-element {
+        span {
+            float: right;
+            text-align: right;
+            margin-left: auto;
+        }
+    }
+    .graph-detail {
+        position: relative;
+        margin-top: 35px;
+        canvas {
+            margin-top: 25px;
+            width: 100% !important;
+            height: 200px !important;
+            margin-bottom: 25px;
+            z-index: 100;
+        }
+    }
+    .vertical-line {
+        position: absolute;
+        height: 100%;
+        .vertical {
+            height: 100%;
+            float: left;
+            span {
+                width: 4vw;
+                background-image: linear-gradient(#3d4750, #283239);
+                margin-left: auto;
+                margin-right: auto;
+                z-index: -10;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+        .number {
+            float: left;
+            color: #d7d8e3;
+            font-size: 12px;
+            position: relative;
+            margin-top: 3px;
+            span {
+                margin: auto;
+                text-align: center;
+            }
+        }
+    }
+    .vertical-line-year {
+        margin-left: 2%;
+        .year-vertical {
+            width: 8%;
+        }
+        .year-number {
+            width: 8%;
+            transform: rotate(-45deg);
+        }
+    }
+    .vertical-line-daily {
+        margin-left: 2%;
+        .daily-vertical {
+            width: 8%;
+        }
+        .daily-number {
+            width: 8%;
+        }
+    }
+    .vertical-line-daily {
+        margin-left: 2%;
+        .daily-vertical {
+            width: 8%;
+        }
+        .daily-number {
+            width: 8%;
+        }
+    }
+    .vertical-line-week {
+        margin-left: 1%;
+        .week-vertical {
+            width: 14%;
+        }
+        .week-number {
+            width: 14%;
+        }
+    }
+    .vertical-line-hour {
+        position: absolute;
+        height: 100%;
+        margin-left: 2%;
+        .hour-vertical {
+            height: 100%;
+            width: 8%;
+            float: left;
+            span {
+                width: 4vw;
+                background-image: linear-gradient(#3d4750, #283239);
+                margin-left: auto;
+                margin-right: auto;
+                z-index: -10;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+        .hour-number {
+            float: left;
+            width: 8%;
+            color: #d7d8e3;
+            font-size: 12px;
+            position: relative;
+            margin-top: 3px;
+            span {
+                margin: auto;
+                text-align: center;
+            }
+        }
+    }
+    .select-date-type {
+        margin-top: 50px;
+        span {
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            line-height: 30px;
+            margin: auto;
+            text-align: center;
+        }
+        .select-span {
+            background-color: white;
+            color: #373f45;
+        }
+        .unselect-span {
+            background-color: #3b424a;
+            color: white;
+        }
+    }
+}

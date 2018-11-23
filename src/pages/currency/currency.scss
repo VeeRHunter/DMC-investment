@@ -1,0 +1,86 @@
+page-currency {
+    ion-content {
+        background-color: #2a363e !important;
+    }
+    #chartContainer {
+        margin-top: 30px;
+    }
+    .canvasjs-chart-toolbar {
+        display: none !important;
+    }
+    .canvasjs-chart-credit {
+        display: none !important;
+    }
+    .total-balance {
+        margin-top: 50px;
+        span {
+            color: #979da1;
+        }
+    }
+    .total-value {
+        margin-top: 5px;
+        span {
+            font-size: 35px;
+            font-weight: 500;
+            color: white;
+        }
+    }
+    .total-bonus {
+        margin-top: 5px;
+        span {
+            color: #4bdbbe;
+        }
+    }
+    .graph-row {
+        margin-bottom: 30px;
+        ion-card {
+            background-color: #334049;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 2px 0px 40px 3px rgba(0, 0, 0, 0.5);
+            padding: unset;
+            margin: auto;
+            margin-top: 20px; // margin: unset;
+            ion-card-content {
+                padding: unset;
+                canvas {
+                    width: 100% !important;
+                    height: 80px !important;
+                    margin-bottom: 16px;
+                }
+            }
+            ion-card-header {
+                padding-bottom: unset !important;
+            }
+            .big-ttle {
+                span {
+                    color: #f9f9f9;
+                    font-size: 18px;
+                }
+            }
+            .small-title {
+                color: #899196;
+                font-size: 10px;
+            }
+            .small-normal-title {
+                color: #4cd7bc;
+                font-size: 10px;
+            }
+            .small-red-title {
+                color: #fd5182;
+                font-size: 10px;
+            }
+            .left-element {
+                float: left;
+                text-align: left;
+            }
+            .right-element {
+                span {
+                    float: right;
+                    text-align: right;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}

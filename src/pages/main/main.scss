@@ -11,4 +11,69 @@ page-main {
             color: white;
         }
     }
+    .current-yield {
+        span {
+            color: #318764;
+            font-size: 2rem;
+        }
+    }
+    .red-color {
+        color: #ff2525 !important; // color: red !important;
+    }
+    .green-color {
+        color: #3dc08a !important;
+    }
+    .total-data {
+        margin-top: 10px;
+        margin-bottom: 30px;
+        .each-data {
+            background-color: #293038;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            // border-top: 3px solid;
+            // border-top-left-radius: 5px;
+            // border-top-right-radius: 5px;
+            .data-row{
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            .border-row{
+                height: 7px;
+                // background-color: white;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+            .flag-image {
+                margin: auto;
+                // width: 100%;
+                // height: 100%;
+                width: 40px;
+                height: 40px;
+            }
+            .big-title {
+                span {
+                    color: #a7aaaf;
+                    font-size: 18px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+            }
+            .small-title {
+                span {
+                    color: #49535c;
+                    font-size: 13px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+            }
+            .current-currency {
+                span {
+                    color: #3dc08a;
+                    font-size: 20px;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+            }
+        }
+    }
 }

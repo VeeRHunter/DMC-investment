@@ -22,18 +22,72 @@
 
   <ion-row class="page-title">
     <span>
-      ${{orgInvestment}}
+      {{investmentValue}}
     </span>
   </ion-row>
 
   <ion-row class="current-yield">
     <ion-col col-6>
-      <ion-row class="full-height">
+      <ion-row class="full-height left-element">
         <span>
-          ${{orgInvestment}}
+          {{currentYield}}
         </span>
       </ion-row>
     </ion-col>
+
+    <ion-col col-6>
+      <ion-row class="full-height right-element">
+        <span [ngClass]="{'red-color':percentState, 'green-color':!percentState}">
+          {{percentGrowth}}
+        </span>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="total-data">
+    <ion-row class="each-data" *ngFor="let list of showDataList; let i = index" (click)="goCurrency(i)">
+      <ion-row class="border-row" [ngStyle]="{'background-color':list.borderColor}"></ion-row>
+      <ion-row class="data-row">
+        <ion-col col-7>
+          <ion-row class="full-height">
+            <ion-col col-4>
+              <ion-row class="full-height">
+                <img src="assets/imgs/flags/{{list.image}}.png" class="flag-image" />
+              </ion-row>
+            </ion-col>
+            <ion-col col-8>
+              <ion-row class="full-height">
+                <ion-row class="big-title">
+                  <span>
+                    {{list.bigTitle}}
+                  </span>
+                </ion-row>
+                <ion-row class="small-title">
+                  <span>
+                    {{list.smallTitle}}
+                  </span>
+                </ion-row>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-5>
+          <ion-row class="full-height right-element">
+            <ion-row class="current-currency">
+              <span>
+                {{list.currentCurrency}}
+              </span>
+            </ion-row>
+            <ion-row class="daily-percent">
+              <span [ngClass]="{'red-color':list.classState, 'green-color':!list.classState}">
+                {{list.dailyPercent}}
+              </span>
+            </ion-row>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-row>
   </ion-row>
 
 </ion-content>
