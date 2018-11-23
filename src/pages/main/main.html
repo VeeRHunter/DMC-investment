@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header class="header-row">
+<!-- <ion-header class="header-row">
 
   <ion-row class="header-component">
     <ion-col col-2>
@@ -15,127 +15,25 @@
     </ion-col>
   </ion-row>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content padding>
 
-  <ion-row class="logo-row first-row">
-    <img class="logo-image" src="assets/imgs/non-logo.png" />
-  </ion-row>
-
   <ion-row class="page-title">
     <span>
-      Investments
+      ${{orgInvestment}}
     </span>
   </ion-row>
 
-  <ion-row class="assets-property-row">
-    <span>
-      Digital Mining Assets/Property
-    </span>
-  </ion-row>
-
-  <ion-row class="org-investment">
-    <ion-col col-7>
+  <ion-row class="current-yield">
+    <ion-col col-6>
       <ion-row class="full-height">
-        <span class="org-title">
-          Original investment
-        </span>
-      </ion-row>
-    </ion-col>
-    <ion-col col-5>
-      <ion-row class="full-height">
-        <span class="org-value">
+        <span>
           ${{orgInvestment}}
         </span>
       </ion-row>
     </ion-col>
-  </ion-row>
-
-  <ion-row class="daily-yield">
-    <ion-col col-7>
-      <ion-row class="full-height">
-        <span class="daily-title">
-          Daily yield @10% PA
-        </span>
-      </ion-row>
-    </ion-col>
-    <ion-col col-5>
-      <ion-row class="full-height">
-        <span class="daily-value">
-          ${{dailyYield}}
-        </span>
-      </ion-row>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col col-4>
-      <ion-row class="full-height">
-        <ion-row class="live-feed">
-          <span mat-raised-button (click)="liveFeedCall()">
-            LIVE FEED
-          </span>
-        </ion-row>
-      </ion-row>
-    </ion-col>
-    <ion-col col-8>
-      <ion-row class="full-height">
-
-        <ion-row class="live-feed-value">
-          <span>
-            ${{liveFeed}}
-          </span>
-        </ion-row>
-      </ion-row>
-    </ion-col>
-  </ion-row>
-
-  <ion-row class="graph-row">
-    <ion-row style="display: block;" *ngIf="enableShowChat">
-    <!-- <ion-row style="display: block;"> -->
-      <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-        [legend]="lineChartLegend" [colors]="lineChartColors" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)"></canvas>
-    </ion-row>
-    <ion-row class="select-type">
-      <!-- <ion-col col-6>
-        <ion-row class="full-height">
-          <span>
-            Please select type
-          </span>
-        </ion-row>
-      </ion-col> -->
-      <ion-col col-12>
-        <ion-row class="full-height">
-          <mat-form-field class="example-full-width">
-            <mat-select [(ngModel)]="dataType" placeholder="Please select type" required name="datatype">
-              <mat-option *ngFor="let list of dataList; let i = index" [value]="list" (click)="selectType(i)">
-                {{ list }}
-              </mat-option>
-            </mat-select>
-
-            <mat-error>
-              Unique Field is required.
-            </mat-error>
-
-          </mat-form-field>
-        </ion-row>
-      </ion-col>
-    </ion-row>
-  </ion-row>
-
-  <ion-row class="trade-centre">
-    <button mat-raised-button (click)="gotoRealEstate()">
-      Pending Transactions
-    </button>
-  </ion-row>
-
-  <ion-row class="transaction-centre">
-    <button mat-raised-button (click)="gotoTransaction()">
-      Transactions
-    </button>
   </ion-row>
 
 </ion-content>
