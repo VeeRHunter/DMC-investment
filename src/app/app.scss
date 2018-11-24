@@ -67,8 +67,8 @@ ion-row {
         margin: auto;
         text-align: center;
         padding-top: 10px;
-        font-size: 1.8rem;
-        color: #1eabc7;
+        font-size: 1.8rem; // color: #1eabc7;
+        color: white;
         font-weight: 500;
     }
 }
@@ -104,6 +104,52 @@ ion-row {
         margin-left: auto;
         margin-top: auto;
         margin-bottom: auto;
+    }
+}
+
+.small-letter {
+    font-size: 20px !important;
+}
+
+ion-content {
+    background-color: #2a363e !important;
+}
+
+ion-footer {
+    height: 70px;
+    .footer-row {
+        height: 70px;
+        .icon-row {
+            img {
+                width: 40px;
+                height: 40px;
+                margin: auto;
+            }
+        }
+        .tab-title {
+            span {
+                color: white;
+                margin: auto;
+            }
+        }
+    }
+}
+
+.page-title {
+    span {
+        color: white !important;
+    }
+}
+
+.transaction-title {
+    span {
+        color: white !important;
+    }
+}
+
+.original-investment {
+    span {
+        color: white !important;
     }
 }
 

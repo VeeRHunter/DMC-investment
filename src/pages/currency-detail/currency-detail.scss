@@ -67,7 +67,7 @@ page-currency-detail {
         height: 100%;
         .vertical {
             height: 100%;
-            float: left;
+            position: relative;
             span {
                 width: 4vw;
                 background-image: linear-gradient(#3d4750, #283239);
@@ -79,7 +79,7 @@ page-currency-detail {
             }
         }
         .number {
-            float: left;
+            // float: left;
             color: #d7d8e3;
             font-size: 12px;
             position: relative;
@@ -100,62 +100,86 @@ page-currency-detail {
             transform: rotate(-45deg);
         }
     }
-    .vertical-line-daily {
+    .daily-margin {
         margin-left: 2%;
-        .daily-vertical {
-            width: 8%;
-        }
-        .daily-number {
-            width: 8%;
-        }
     }
     .vertical-line-daily {
-        margin-left: 2%;
-        .daily-vertical {
-            width: 8%;
-        }
-        .daily-number {
-            width: 8%;
-        }
-    }
-    .vertical-line-week {
-        margin-left: 1%;
-        .week-vertical {
-            width: 14%;
-        }
-        .week-number {
-            width: 14%;
-        }
-    }
-    .vertical-line-hour {
-        position: absolute;
-        height: 100%;
-        margin-left: 2%;
-        .hour-vertical {
+        .daily-verical-row {
+            margin: auto;
             height: 100%;
-            width: 8%;
-            float: left;
+        }
+        .daily-vertical {
+            width: 4%;
             span {
-                width: 4vw;
-                background-image: linear-gradient(#3d4750, #283239);
-                margin-left: auto;
-                margin-right: auto;
-                z-index: -10;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
+                width: 45%;
             }
         }
-        .hour-number {
-            float: left;
-            width: 8%;
-            color: #d7d8e3;
-            font-size: 12px;
-            position: relative;
-            margin-top: 3px;
+        .daily-number {
+            width: 4%;
+            font-size: 10px;
+            transform: rotate(-45deg);
+        }
+    }
+    .month-margin1 {
+        margin-left: 1%;
+    }
+    .month-margin2 {
+        margin-left: 2.15%;
+    }
+    .month-margin3 {
+        margin-left: 2%;
+    }
+    .month-margin4 {
+        margin-left: 1.95%;
+    }
+    .vertical-line-monthly {
+        .monthly-verical-row {
+            margin: auto;
+            height: 100%;
+        }
+        .monthly-vertical1 {
+            width: 3.5%;
             span {
-                margin: auto;
-                text-align: center;
+                width: 45%;
             }
+        }
+        .monthly-number1 {
+            width: 3.5%;
+            font-size: 10px;
+            transform: rotate(-55deg);
+        }
+        .monthly-vertical2 {
+            width: 3.3%;
+            span {
+                width: 45%;
+            }
+        }
+        .monthly-number2 {
+            width: 3.3%;
+            font-size: 10px;
+            transform: rotate(-55deg);
+        }
+        .monthly-vertical3 {
+            width: 3.2%;
+            span {
+                width: 45%;
+            }
+        }
+        .monthly-number3 {
+            width: 3.2%;
+            font-size: 10px;
+            transform: rotate(-55deg);
+        }
+        .monthly-vertical4 {
+            width: 3.1%;
+            span {
+                width: 45%;
+            }
+        }
+        .monthly-number4 {
+            width: 3.1%;
+            font-size: 10px;
+            transform: rotate(-55deg);
         }
     }
     .select-date-type {

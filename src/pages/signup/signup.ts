@@ -111,7 +111,10 @@ export class SignupPage {
   signUpUser(userProfile) {
     this.clickSignUp = true;
     console.log(userProfile);
-    if (userProfile.valid && this.userData.password == this.userData.repassword && this.userData.pincode == this.userData.repincode) {
+    if (userProfile.valid && this.emailFormControl.valid && this.rePasswordControl.valid
+      && this.pinControl.valid && this.rePinControl.valid
+      && this.userData.password == this.userData.repassword
+      && this.userData.pincode == this.userData.repincode) {
       console.log(JSON.stringify(this.userData));
       console.log(this.userData);
       let loading = this.loadingCtrl.create({

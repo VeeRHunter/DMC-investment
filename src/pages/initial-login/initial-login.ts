@@ -22,18 +22,6 @@ export class InitialLoginPage {
     Validators.required
   ]);
 
-  public rePasswordControl = new FormControl('', [
-    Validators.required
-  ]);
-
-  public pinControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern("[0-9]{4}$")
-  ])
-  public rePinControl = new FormControl('', [
-    Validators.required
-  ]);
-
   public userData = { "email": "", "password": "", "apiState": "initialLogin" };
 
   public countryList = ["Australia", "United State"];
@@ -56,7 +44,7 @@ export class InitialLoginPage {
   Login(userProfile) {
     this.clickSignUp = true;
     console.log(userProfile);
-    if (userProfile.valid) {
+    if (userProfile.valid && this.emailFormControl.valid) {
       let loading = this.loadingCtrl.create({
         content: "Please Wait..."
       });

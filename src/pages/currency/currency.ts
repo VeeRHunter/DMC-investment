@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the CurrencyPage page.
@@ -14,6 +14,13 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
   templateUrl: 'currency.html',
 })
 export class CurrencyPage {
+
+  public chartParam: any;
+  public invesParam: any;
+
+  public totalInvest: any;
+  public disInvest: any;
+  public disPercent: any;
 
   public lineChartData: Array<any> = [
 
@@ -70,53 +77,26 @@ export class CurrencyPage {
   public enableShow = false;
 
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+  ) {
 
   }
 
   ionViewDidLoad() {
-    console.log(this.lineChartData);
-
-    for (let list of this.totalDataArray) {
-      let listTemp = {
-        "bigTitle": "", "smallTitle": "", "totalValue": "", "changeValue": "", "chanagePercent": ""
-        , "lineChartData": [], "lineChartColors": [], "lineChartType": "line", "lineChartOptions": this.lineChartOptions,
-        "lineChartLabels": [], "classState": false,
-      };
-      listTemp.bigTitle = list.bigTitle;
-      listTemp.smallTitle = list.smallTitle;
-      listTemp.totalValue = list.totalValue;
-      listTemp.changeValue = list.changeValue;
-      if (listTemp.changeValue.includes("-")) {
-        listTemp.classState = true;
-      }
-      listTemp.chanagePercent = list.chanagePercent;
-      let currentColor = this.getRandomColor();
-      let tempColors =
-      { // grey
-        backgroundColor: 'transparent',
-        borderColor: currentColor,
-        pointBackgroundColor: currentColor,
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(' + currentColor + ", 0.8)"
-      };
-      listTemp.lineChartColors.push(tempColors);
-      let dataPoints = [];
-      let y = 0;
-      for (let i = 0; i < 150; i++) {
-        y += Math.round(5 + Math.random() * (-5 - 5));
-        dataPoints.push({ y: y });
-        listTemp.lineChartLabels.push(i + "text");
-      }
-      let chartData = { data: dataPoints, label: list.bigTitle, fill: false, lineTension: 0 };
-      listTemp.lineChartData.push(chartData);
-
-      this.showTotalData.push(listTemp);
-    }
-
-    console.log(this.showTotalData);
     this.enableShow = true;
+
+    this.chartParam = this.navParams.data.chartData;
+    this.invesParam = this.navParams.data.investmentValue;
+    console.log(this.chartParam);
+    this.totalInvest = this.invesParam.investmentValue;
+    this.disInvest = this.invesParam.disValue;
+    this.disPercent = this.invesParam.disPercent;
+
+    console.log(this.invesParam);
+
+    this.getChartData();
   }
 
 
@@ -152,6 +132,80 @@ export class CurrencyPage {
   gotoDetail(index) {
     console.log(this.showTotalData[index]);
     this.navCtrl.push('CurrencyDetailPage', { navParams: this.showTotalData[index] });
+  }
+
+  getChartData() {
+    for (let list of this.chartParam) {
+      let listTemp = {
+        "bigTitle": "", "smallTitle": "", "totalValue": "", "changeValue": "", "chanagePercent": ""
+        , "lineChartData": [], "lineChartColors": [], "lineChartType": "line", "lineChartOptions": this.lineChartOptions,
+        "lineChartLabels": [], "classState": false, "charData": list.chartData,
+      };
+
+      listTemp.bigTitle = list.bigTitle;
+      listTemp.smallTitle = list.smallTitle;
+      listTemp.totalValue = list.currentCurrency;
+      listTemp.changeValue = list.dailyDis;
+      listTemp.chanagePercent = list.dailyPercent;
+      if (listTemp.changeValue.includes("-")) {
+        listTemp.classState = true;
+      }
+
+      let tempColors =
+      { // grey
+        backgroundColor: 'transparent',
+        borderColor: list.borderColor,
+        pointBackgroundColor: list.borderColor,
+        pointBorderColor: list.borderColor,
+        pointHoverBackgroundColor: list.borderColor,
+        pointHoverBorderColor: 'rgba(' + list.borderColor + ", 0.8)"
+      };
+      listTemp.lineChartColors.push(tempColors);
+
+      let dataPoints = [];
+      for (let eachChart of list.chartData) {
+        dataPoints.push(eachChart.value);
+        listTemp.lineChartLabels.push(this.convertTimeToDate(parseInt(eachChart.date)));
+        // this.convertTimeToDate(parseInt(eachChart.date));
+      }
+      let chartData = { data: dataPoints, label: list.bigTitle, fill: false, lineTension: 0 };
+      listTemp.lineChartData.push(chartData);
+
+      this.showTotalData.push(listTemp);
+
+    }
+  }
+
+  convertTimeToDate(unix_timestamp) {
+    let dateValue = new Date(unix_timestamp * 1000);
+    let year = dateValue.getFullYear();
+    // let month = months[dateValue.getMonth()];
+    let month = dateValue.getMonth();
+    let date = dateValue.getDate();
+    // Hours part from the timestamp
+    let hours = dateValue.getHours();
+    // Minutes part from the timestamp
+    let minutes = "0" + dateValue.getMinutes();
+    // Seconds part from the timestamp
+    let seconds = "0" + dateValue.getSeconds();
+
+    // Will display time in 10:30:23 format
+    let formattedTime = year + ":" + month + ":" + date + "T" + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    // console.log(formattedTime);
+    return formattedTime;
+  }
+
+  goDashBoard() {
+    this.navCtrl.setRoot('MainPage');
+  }
+
+  goReceipt() {
+    this.navCtrl.push('TransactionPage');
+  }
+
+  logOut() {
+    localStorage.setItem("loged", "");
+    this.navCtrl.setRoot('InitialLoginPage');
   }
 
 }

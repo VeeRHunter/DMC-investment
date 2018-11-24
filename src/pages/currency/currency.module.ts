@@ -8,7 +8,8 @@ import { ChartsModule } from 'ng2-charts';
     CurrencyPage,
   ],
   imports: [
-    IonicPageModule.forChild(CurrencyPage),ChartsModule
+    IonicPageModule.forChild(CurrencyPage),
+    ChartsModule,
   ],
 })
-export class CurrencyPageModule {}
+export class CurrencyPageModule { }

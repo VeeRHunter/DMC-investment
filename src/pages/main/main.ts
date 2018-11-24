@@ -39,44 +39,17 @@ export class MainPage {
   public investmentValue: any;
   public currentYield: any;
   public percentGrowth: any;
+  public percentGrowthValue: any;
   public percentState: boolean;
+
+  public showPage = false;
 
 
   public colorList: any[];
   public showDataList: any[];
 
-  public orgDataList = [
-    {
-      "bigTitle": "Bitcoin", "smallTitle": "BTC",
-      "totalValue": "+$16648.62", "changeValue": "-$822.62",
-      "chanagePercent": "7.22%", "image": "Bahrain"
-    },
-    {
-      "bigTitle": "Bitcoin Cash", "smallTitle": "BCH",
-      "totalValue": "+$824.46", "changeValue": "$64.42",
-      "chanagePercent": "2.8%", "image": "canada"
-    },
-    {
-      "bigTitle": "Ethereum", "smallTitle": "ETH",
-      "totalValue": "+$482.24", "changeValue": "-$46.68",
-      "chanagePercent": "-27.6%", "image": "brunei"
-    },
-    {
-      "bigTitle": "Gold", "smallTitle": "Gold",
-      "totalValue": "+$482.24", "changeValue": "$46.68",
-      "chanagePercent": "17.6%", "image": "cayman"
-    },
-    {
-      "bigTitle": "Euro", "smallTitle": "Euro",
-      "totalValue": "+$482.24", "changeValue": "$46.68",
-      "chanagePercent": "-7.6%", "image": "euro"
-    },
-    {
-      "bigTitle": "GB", "smallTitle": "GB",
-      "totalValue": "+$482.24", "changeValue": "-$46.68",
-      "chanagePercent": "2.6%", "image": "GB"
-    }
-  ];
+  public orgDataList: any;
+  public orgDetailList: any;
 
 
 
@@ -94,15 +67,10 @@ export class MainPage {
     console.log('ionViewDidLoad MainPage');
     this.colorList = new Array();
     this.showDataList = new Array();
-    this.getTotalData();
-    // this.getLiveData();
+    this.getLiveData();
   }
 
   getLiveData() {
-
-
-
-
 
     this.userData.email = localStorage.getItem("useremail");
     let loading = this.loadingCtrl.create({
@@ -113,17 +81,25 @@ export class MainPage {
       loading.dismiss();
       console.log(result);
       if (Object(result).status == "success") {
-        this.orgInvestment = this.changeToDecimal(Object(result).liveFeed.original_investment);
+        this.currentYield = this.changeToDecimal(Object(result).liveFeed.original_investment);
         this.dailyYield = parseFloat(Object(result).liveFeed.daily_yeild);
         this.perSecondValue = this.dailyYield / 24 / 60 / 60;
         // this.realLiveFeed = this.changeToDecimal(Object(result).live_value);
         // this.liveFeed = this.changeToDecimal(Object(result).live_value);
         this.updatedTimestamp = this.changeToDecimal(Object(result).liveFeed.updated_timestamp);
         this.currentTimestamp = this.changeToDecimal(Object(result).currentTimestamp);
-        this.liveFeed = this.changeToDecimal(parseFloat(Object(result).liveFeed.live_value) + (this.perSecondValue * (this.currentTimestamp - this.updatedTimestamp)));
+        this.investmentValue = this.changeToDecimal(parseFloat(Object(result).liveFeed.live_value) + (this.perSecondValue * (this.currentTimestamp - this.updatedTimestamp)));
         this.realLiveFeed = (parseFloat(Object(result).liveFeed.live_value) + (this.perSecondValue * (this.currentTimestamp - this.updatedTimestamp)));
 
+        this.calculatePercentage();
         this.calculateLiveFeed();
+
+        this.orgDataList = Object(result).currencyDataList;
+        this.orgDetailList = Object(result).currencyDetailList;
+        this.getTotalData();
+
+        // Set graph data
+
       } else {
         let toast = this.toastCtrl.create({
           message: Object(result).detail,
@@ -144,9 +120,26 @@ export class MainPage {
   calculateLiveFeed() {
     setTimeout(() => {
       this.realLiveFeed = this.realLiveFeed + this.dailyYield / 24 / 60 / 60;
-      this.liveFeed = this.changeToDecimal(this.realLiveFeed);
+      this.investmentValue = this.changeToDecimal(this.realLiveFeed);
+      this.calculatePercentage();
       this.calculateLiveFeed();
     }, 1000);
+  }
+
+  calculatePercentage() {
+    this.percentGrowthValue = ((this.investmentValue - this.currentYield) / this.currentYield) * 100;
+    if (this.investmentValue - this.currentYield > 0) {
+      this.percentGrowth = "+" + this.changeToDecimal(this.percentGrowthValue) + "%";
+    } else if (this.investmentValue - this.currentYield == 0) {
+      this.percentGrowth = this.changeToDecimal(this.percentGrowthValue) + "%";
+    } else {
+      this.percentGrowth = "-" + this.changeToDecimal(this.percentGrowthValue) + "%";
+    }
+    if (this.percentGrowth.includes("-")) {
+      this.percentState = true;
+    } else {
+      this.percentState = false;
+    }
   }
 
   changeToDecimal(inputData) {
@@ -175,37 +168,101 @@ export class MainPage {
 
   getTotalData() {
 
-    this.investmentValue = "$3136.06";
-    this.currentYield = "+$2070.04";
-    this.percentGrowth = "-$151.87";
-    if (this.percentGrowth.includes("-")) {
-      this.percentState = true;
-    } else {
-      this.percentState = false;
-    }
-
-
     for (let list of this.orgDataList) {
       let eachArrayValue = {
-        "bigTitle": "", "smallTitle": "", "currentCurrency": "", "dailyPercent": ""
-        , "classState": false, "image": "", "borderColor": "",
+        "bigTitle": "", "smallTitle": "", "currentCurrency": "", "dailyPercent": "", "dailyDis": ""
+        , "classState": false, "image": "", "borderColor": "", "chartData": [],
       };
-      eachArrayValue.bigTitle = list.bigTitle;
-      eachArrayValue.smallTitle = list.smallTitle;
-      eachArrayValue.currentCurrency = list.totalValue;
-      eachArrayValue.dailyPercent = list.chanagePercent;
-      if (eachArrayValue.dailyPercent.includes("-")) {
+      eachArrayValue.bigTitle = list.cl_name;
+      eachArrayValue.smallTitle = list.cl_ShortName;
+      this.bubbleSortIncrease();
+      eachArrayValue.currentCurrency = this.orgDetailList[this.orgDetailList.length - 1][list.cl_currencyTableColumn];
+      let orignalCurrency = this.orgDetailList[0][list.cl_currencyTableColumn];
+      let beforeCurrency = parseFloat(eachArrayValue.currentCurrency) - parseFloat(orignalCurrency);
+      eachArrayValue.dailyPercent = this.changeToDecimal((beforeCurrency / parseFloat(eachArrayValue.currentCurrency) * 100)) + "%";
+      if (beforeCurrency < 0) {
         eachArrayValue.classState = true;
+        eachArrayValue.dailyDis = "-$" + this.changeToDecimal(Math.abs(beforeCurrency));
+      } else if (beforeCurrency === 0) {
+        eachArrayValue.dailyDis = "$" + this.changeToDecimal(Math.abs(beforeCurrency));
+      } else {
+        eachArrayValue.dailyPercent = "+" + eachArrayValue.dailyPercent;
+        eachArrayValue.dailyDis = "+$" + this.changeToDecimal(Math.abs(beforeCurrency));
       }
-      eachArrayValue.image = list.image;
+      eachArrayValue.image = "http://traxprint.asia/dmc-investment/images/flags/" + list.cl_logoLocation;
       eachArrayValue.borderColor = this.getRandomColor();
+
+      for (let chartDetail of this.orgDetailList) {
+        let eachChart = { "date": "", "value": "" };
+        eachChart.date = chartDetail.currency_timestamp;
+        eachChart.value = chartDetail[list.cl_currencyTableColumn];
+        eachArrayValue.chartData.push(eachChart);
+      }
+
+
+
       this.showDataList.push(eachArrayValue);
     }
     console.log(this.showDataList);
+    this.showPage = true;
   }
 
   goCurrency(index) {
-    this.navCtrl.push('CurrencyPage');
+    let investParam = { "investmentValue": this.investmentValue, "disValue": "", "disPercent": "" };
+    if (this.realLiveFeed - this.currentYield > 0) {
+      investParam.disValue = "+$" + this.changeToDecimal(this.realLiveFeed - this.currentYield);
+    } else if (this.realLiveFeed - this.currentYield == 0) {
+      investParam.disValue = "$" + this.changeToDecimal(this.realLiveFeed - this.currentYield);
+    } else {
+      investParam.disValue = "-$" + this.changeToDecimal(this.realLiveFeed - this.currentYield);
+    }
+    investParam.disPercent = this.percentGrowth;
+    this.navCtrl.push('CurrencyPage', { chartData: this.showDataList, investmentValue: investParam });
+  }
+
+
+
+  bubbleSortIncrease() {
+    let length = this.orgDetailList.length;
+    for (let i = 0; i < length; i++) { //Number of passes
+      for (let j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
+        //Compare the adjacent positions
+        if (parseFloat(this.orgDetailList[j].currency_timestamp) > parseFloat(this.orgDetailList[j + 1].currency_timestamp)) {
+          //Swap the numbers
+          let tmp = this.orgDetailList[j];  //Temporary letiable to hold the current number
+          this.orgDetailList[j] = this.orgDetailList[j + 1]; //Replace current number with adjacent number
+          this.orgDetailList[j + 1] = tmp; //Replace adjacent number with current number
+        }
+      }
+    }
+  }
+
+  bubbleSortDecrease() {
+    let length = this.orgDetailList.length;
+    for (let i = 0; i < length; i++) { //Number of passes
+      for (let j = 0; j < (length - i - 1); j++) { //Notice that j < (length - i)
+        //Compare the adjacent positions
+        if (parseFloat(this.orgDetailList[j].currency_timestamp) < parseFloat(this.orgDetailList[j + 1].currency_timestamp)) {
+          //Swap the numbers
+          let tmp = this.orgDetailList[j];  //Temporary letiable to hold the current number
+          this.orgDetailList[j] = this.orgDetailList[j + 1]; //Replace current number with adjacent number
+          this.orgDetailList[j + 1] = tmp; //Replace adjacent number with current number
+        }
+      }
+    }
+  }
+
+  goDashBoard() {
+    this.navCtrl.setRoot('MainPage');
+  }
+
+  goReceipt() {
+    this.navCtrl.push('TransactionPage');
+  }
+
+  logOut() {
+    localStorage.setItem("loged", "");
+    this.navCtrl.setRoot('InitialLoginPage');
   }
 
 }

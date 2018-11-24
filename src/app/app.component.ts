@@ -48,8 +48,8 @@ export class MyApp {
 
   openPage(page) {
     if (page.title == "Log Out") {
-      this.nav.setRoot('InitialLoginPage');
       localStorage.setItem("loged", "");
+      this.nav.setRoot('InitialLoginPage');
     } else {
       this.nav.push(page.component);
     }

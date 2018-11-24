@@ -20,23 +20,32 @@
 
 <ion-content padding>
 
-  <ion-row class="page-title">
+  <ion-row class="page-title" *ngIf="showPage">
+    <span class="small-letter">
+      Investment Value<br>
+    </span>
     <span>
-      {{investmentValue}}
+      ${{currentYield}}
     </span>
   </ion-row>
 
-  <ion-row class="current-yield">
+  <ion-row class="current-yield" *ngIf="showPage">
     <ion-col col-6>
       <ion-row class="full-height left-element">
+        <span class="small-letter">
+          Yield<br>
+        </span>
         <span>
-          {{currentYield}}
+          ${{investmentValue}}
         </span>
       </ion-row>
     </ion-col>
 
     <ion-col col-6>
       <ion-row class="full-height right-element">
+        <span class="small-letter" [ngClass]="{'red-color':percentState, 'green-color':!percentState}">
+          Percentage<br>
+        </span>
         <span [ngClass]="{'red-color':percentState, 'green-color':!percentState}">
           {{percentGrowth}}
         </span>
@@ -44,18 +53,18 @@
     </ion-col>
   </ion-row>
 
-  <ion-row class="total-data">
+  <ion-row class="total-data" *ngIf="showPage">
     <ion-row class="each-data" *ngFor="let list of showDataList; let i = index" (click)="goCurrency(i)">
       <ion-row class="border-row" [ngStyle]="{'background-color':list.borderColor}"></ion-row>
       <ion-row class="data-row">
         <ion-col col-7>
           <ion-row class="full-height">
-            <ion-col col-4>
+            <ion-col col-3>
               <ion-row class="full-height">
-                <img src="assets/imgs/flags/{{list.image}}.png" class="flag-image" />
+                <img src="{{list.image}}" class="flag-image" />
               </ion-row>
             </ion-col>
-            <ion-col col-8>
+            <ion-col col-9>
               <ion-row class="full-height">
                 <ion-row class="big-title">
                   <span>
@@ -76,7 +85,7 @@
           <ion-row class="full-height right-element">
             <ion-row class="current-currency">
               <span>
-                {{list.currentCurrency}}
+                ${{list.currentCurrency}}
               </span>
             </ion-row>
             <ion-row class="daily-percent">
@@ -91,3 +100,46 @@
   </ion-row>
 
 </ion-content>
+
+<ion-footer>
+  <ion-row class="footer-row">
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="goDashBoard()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/dashboard.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Dashboard
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="goReceipt()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/receipt.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Receipts
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="logOut()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/logout.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Logout
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>

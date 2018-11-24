@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,7 @@ import { ChartsModule } from 'ng2-charts';
   imports: [
     IonicPageModule.forChild(MainPage),
     MatInputModule, MatButtonModule, MatChipsModule, MatIconModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule, MatCheckboxModule, ChartsModule,
+    MatDatepickerModule, MatNativeDateModule, MatCheckboxModule,
   ],
 })
 export class MainPageModule { }

@@ -12,12 +12,12 @@
   </ion-row>
   <ion-row class="total-value">
     <span>
-      US$45,768.13
+      ${{totalInvest}}
     </span>
   </ion-row>
   <ion-row class="total-bonus">
     <span>
-      +$164.42 (4.6%)
+      {{disInvest}} ({{disPercent}})
     </span>
   </ion-row>
   <ion-row class="graph-row">
@@ -44,7 +44,7 @@
             <ion-row class="full-height right-element">
               <ion-row class="big-ttle">
                 <span>
-                  {{list.totalValue}}
+                  ${{list.totalValue}}
                 </span>
               </ion-row>
               <ion-row [ngClass]="{'small-normal-title':!list.classState, 'small-red-title':list.classState}">
@@ -67,3 +67,46 @@
 
   </ion-row>
 </ion-content>
+
+<ion-footer>
+  <ion-row class="footer-row">
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="goDashBoard()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/dashboard.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Dashboard
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="goReceipt()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/receipt.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Receipts
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-4>
+      <ion-row class="full-height" (click)="logOut()">
+        <ion-row class="icon-row">
+          <img src="assets/imgs/logout.png" />
+        </ion-row>
+        <ion-row class="tab-title">
+          <span>
+            Logout
+          </span>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-footer>
