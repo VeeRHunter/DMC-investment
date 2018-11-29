@@ -1,7 +1,4 @@
 page-welcome {
-    ion-content {
-        background-color: #2a363e !important;
-    }
     .logo-image {
         width: 30%;
     }
@@ -58,8 +55,8 @@ page-welcome {
         button {
             margin: auto;
             height: 35px;
-            background-color: #ed7d31;
-            color: white;
+            background-color: #FFD700;
+            color: #C0C0C0;
             font-size: 1.8rem;
             border-radius: 5px;
         }

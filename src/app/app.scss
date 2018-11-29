@@ -19,7 +19,7 @@ ion-row {
 
 .header-row {
     height: 50px;
-    background-color: #2a363e;
+    background-color: #283037;
 }
 
 .header-ios {
@@ -28,7 +28,7 @@ ion-row {
 
 .header-component {
     height: 50px;
-    background-color: #2a363e;
+    background-color: #283037;
 }
 
 .full-height {
@@ -112,7 +112,7 @@ ion-row {
 }
 
 ion-content {
-    background-color: #2a363e !important;
+    background-color: #283037 !important;
 }
 
 ion-footer {
@@ -150,6 +150,32 @@ ion-footer {
 .original-investment {
     span {
         color: white !important;
+    }
+}
+
+.original-investment {
+    span {
+        color: white !important;
+    }
+}
+
+.search-row {
+    ion-datetime {
+        background-color: white;
+    }
+}
+
+.transaction-description {
+    span {
+        color: white;
+    }
+}
+
+.signup-content {
+    .user-input-row {
+        .mat-input-flex.mat-form-field-flex {
+            height: 30px;
+        }
     }
 }
 
@@ -237,9 +263,9 @@ ion-footer {
     .mat-input-underline {
         display: none;
     }
-    mat-form-field {
-        // border-bottom: 2px solid blue;
-    }
+    // mat-form-field {
+    //     border-bottom: 2px solid blue;
+    // }
 }
 
 button {

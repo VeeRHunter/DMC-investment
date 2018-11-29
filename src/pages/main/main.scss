@@ -1,7 +1,4 @@
 page-main {
-    ion-content {
-        background-color: #2a363e !important;
-    }
     .page-title {
         margin-top: 50px;
         span {
@@ -13,7 +10,7 @@ page-main {
     }
     .current-yield {
         span {
-            color: #318764;
+            color: #01f939;
             font-size: 2rem;
         }
     }
@@ -21,7 +18,7 @@ page-main {
         color: #ff2525 !important; // color: red !important;
     }
     .green-color {
-        color: #3dc08a !important;
+        color: #01f939 !important;
     }
     .total-data {
         margin-top: 10px;
@@ -68,7 +65,7 @@ page-main {
             }
             .current-currency {
                 span {
-                    color: #3dc08a;
+                    color: #01f939;
                     font-size: 20px;
                     margin-top: auto;
                     margin-bottom: auto;

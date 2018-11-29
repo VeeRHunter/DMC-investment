@@ -126,9 +126,8 @@ export class SignupPage {
         loading.dismiss();
         console.log(Object(result));
         if (Object(result).status == "success") {
-          localStorage.setItem("loged", "login");
-          localStorage.setItem("useremail", this.userData.email);
-          this.navCtrl.push('WelcomePage');
+          localStorage.setItem("loged", "");
+          this.navCtrl.push('InitialLoginPage');
         } else {
           let toast = this.toastCtrl.create({
             message: Object(result).detail,

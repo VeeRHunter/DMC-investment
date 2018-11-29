@@ -1,7 +1,4 @@
 page-login {
-    ion-content {
-        background-color: #2a363e !important;
-    }
     .welcome-text {
         margin-top: 35px;
         span {
@@ -44,7 +41,7 @@ page-login {
             background-color: rgba($color: #ed7d31, $alpha: 0.6);
             color: white;
             height: 40px;
-            font-size: 18px;
+            // font-size: 15px;
             border-radius: 8px;
         }
         .avail_access {
@@ -53,7 +50,7 @@ page-login {
             width: 50%;
             color: white;
             height: 40px;
-            font-size: 18px;
+            // font-size: 15px;
             border-radius: 8px;
         }
     }
@@ -86,8 +83,9 @@ page-login {
         margin-top: 20px;
         button {
             width: 50%;
-            background-color: #ed7d31;
-            color: white;
+            // background-color: #ed7d31; // color: white;
+            background-color: #FFD700;
+            color: #C0C0C0;
             margin: auto;
             border-radius: 7px;
             margin-bottom: 20px;

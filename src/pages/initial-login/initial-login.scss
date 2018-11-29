@@ -22,10 +22,10 @@ page-initial-login {
         margin-bottom: 20px;
         .signup-button {
             width: 50%;
-            margin: auto;
-            background-color: #ed7d31;
-            border-radius: 5px;
-            color: white;
+            margin: auto; // background-color: #ed7d31;
+            border-radius: 5px; // color: white;
+            background-color: #FFD700;
+            color: #C0C0C0;
         }
     }
     .mat-error-show {
