@@ -11,65 +11,12 @@ page-transaction {
             color: white;
         }
     }
-    .transaction-title {
-        margin-top: 20px;
-        border-top: 1px solid #40598d;
-        border-bottom: 1px solid #40598d;
-        background-color: #ed7d31;
-        span {
-            color: white;
-            font-size: 2.5rem;
-            text-align: center;
-            margin: auto;
-            padding: 5px 0px;
-        }
-    }
-    .original-investment {
-        padding: 10px 0px;
-        span {
-            font-size: 1.8rem;
-            color: white;
-        }
-    }
-    .search-row {
-        ion-datetime {
-            margin: auto;
-            border: 1px solid #40598d;
-            width: 100%;
-            padding: 9px 8px 9px 16px !important;
-            background-color: white;
-        }
-        .search-button {
-            margin: auto;
-            background-color: #ed7d31;
-            border: 1px solid #40598d;
-            color: white;
-        }
-    }
     .transaction-description {
         margin-top: 20px;
         span {
             margin: auto;
             text-align: center;
             font-weight: bold;
-            color: white;
-        }
-    }
-    .each-tran-title {
-        margin-top: 5px;
-        padding-left: 1px;
-        padding-right: 1px;
-        span {
-            color: white;
-            text-align: center;
-            margin: auto; // padding: 5px 0px;
-        }
-        ion-col {
-            background-color: #ed7d31;
-        }
-        ion-icon {
-            margin: auto;
-            font-size: 1.5rem;
             color: white;
         }
     }
@@ -92,16 +39,6 @@ page-transaction {
         .even-tran {
             border-bottom: 1px solid white;
             background-color: #cfd5ea;
-        }
-    }
-    .clear-button {
-        margin-top: 10px;
-        button {
-            margin: auto;
-            background-color: #ed7d31;
-            border: 1px solid #40598d;
-            color: white;
-            width: 100px;
         }
     }
 }
