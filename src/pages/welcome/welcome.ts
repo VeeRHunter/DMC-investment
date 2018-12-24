@@ -53,7 +53,6 @@ export class WelcomePage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      console.log(result);
       if (Object(result).status == "success") {
         this.lastLoginTime = Object(result).lastLoginTime;
         this.lastLoginUserName = Object(result).lastLoginName;

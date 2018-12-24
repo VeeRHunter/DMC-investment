@@ -42,7 +42,6 @@ export class ConfirmModalPage {
       clientSecret: 'password',
       disableBackup: true
     };
-    console.log('ionViewDidLoad ConfirmModalPage');
     this.userData.email = localStorage.getItem("useremail");
     this.userData.confirmValue = localStorage.getItem("confirmValue");
     if (localStorage.getItem("tradeType") == "buy") {
@@ -125,7 +124,6 @@ export class ConfirmModalPage {
   }
 
   submitAccess() {
-    console.log("login");
     if (this.pin1 != "" && this.pin2 != "" && this.pin3 != "" && this.pin4 != "") {
       this.userData.apiState = "confirmPinCode";
       this.userData.email = localStorage.getItem("useremail");
@@ -137,9 +135,7 @@ export class ConfirmModalPage {
       });
       loading.present();
 
-      console.log(JSON.stringify(this.userData));
       this.apiserver.postData(this.userData).then(result => {
-        console.log(result);
         loading.dismiss();
         if (Object(result).status == "success") {
           localStorage.setItem("pendingItem", JSON.stringify(Object(result).pendingData));
@@ -159,7 +155,6 @@ export class ConfirmModalPage {
           duration: 2000
         });
         toast.present();
-        console.error(error);
       })
       // this.navCtrl.push(WelcomePage);
     } else {
@@ -179,9 +174,7 @@ export class ConfirmModalPage {
 
     try {
       await this.platform.ready();
-      console.log("custom log");
       const available = await this.fingerAuth.isAvailable();
-      console.log(available);
       if (available != null) {
         const result = await this.fingerAuth.show(this.fingerprintOptions);
         if (result.withFingerprint != null && result.withFingerprint != "") {
@@ -192,7 +185,6 @@ export class ConfirmModalPage {
             content: "Please Wait..."
           });
           loading.present();
-          console.log(JSON.stringify(this.userData));
           this.apiserver.postData(this.userData).then(result => {
             loading.dismiss();
             if (Object(result).status == "success") {
@@ -215,10 +207,8 @@ export class ConfirmModalPage {
             toast.present();
           })
         }
-        console.log(result);
       }
     } catch (error) {
-      console.log("error log");
       console.error(error);
     }
   }

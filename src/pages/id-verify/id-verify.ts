@@ -46,7 +46,6 @@ export class IdVerifyPage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      console.log(result);
       if (Object(result).status == "success") {
         for (let list of Object(result).realEstateList) {
           this.realEstateList.push(list);

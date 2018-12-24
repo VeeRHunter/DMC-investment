@@ -90,7 +90,6 @@ export class PendingDetailPage {
     localStorage.setItem("pdfURL", this.transactionData.penPDF);
     let modal = this.modalCtrl.create('EmailConfirmPage');
     modal.onDidDismiss(data => {
-      console.log(data);
       if (data != "" && typeof (data) != "undefined") {
         let toast = this.toastCtrl.create({
           message: data,

@@ -79,7 +79,6 @@ export class SignupPage {
     loading.present();
     this.userData.apiState = "getCountryList";
     this.apiserver.postData(this.userData).then(result => {
-      console.log(result);
       loading.dismiss();
       if (Object(result).status == "success") {
         let tempCountry = new Array();
@@ -90,7 +89,6 @@ export class SignupPage {
         for (let list of tempCountry.sort()) {
           this.countryList.push(list);
         }
-        console.log(this.countryList);
       } else {
         let toast = this.toastCtrl.create({
           message: Object(result).detail,
@@ -110,13 +108,10 @@ export class SignupPage {
 
   signUpUser(userProfile) {
     this.clickSignUp = true;
-    console.log(userProfile);
     if (userProfile.valid && this.emailFormControl.valid && this.rePasswordControl.valid
       && this.pinControl.valid && this.rePinControl.valid
       && this.userData.password == this.userData.repassword
       && this.userData.pincode == this.userData.repincode) {
-      console.log(JSON.stringify(this.userData));
-      console.log(this.userData);
       let loading = this.loadingCtrl.create({
         content: "Please Wait..."
       });
@@ -124,7 +119,6 @@ export class SignupPage {
       this.userData.apiState = "signup";
       this.apiserver.postData(this.userData).then((result) => {
         loading.dismiss();
-        console.log(Object(result));
         if (Object(result).status == "success") {
           localStorage.setItem("loged", "");
           this.navCtrl.push('InitialLoginPage');
@@ -152,7 +146,6 @@ export class SignupPage {
   }
 
   clickDOB() {
-    console.log("asdfasdfasdf");
     window.scrollTo(0, 0);
   }
 

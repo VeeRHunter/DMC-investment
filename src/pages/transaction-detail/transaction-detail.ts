@@ -48,8 +48,6 @@ export class TransactionDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TransactionDetailPage');
-    console.log(localStorage.getItem("useremail"));
-    console.log(JSON.parse(localStorage.getItem("selectedTransaction")));
     this.ionicInit();
   }
 
@@ -73,7 +71,6 @@ export class TransactionDetailPage {
     localStorage.setItem("pdfURL", this.transactionData.tranPDF);
     let modal = this.modalCtrl.create('EmailConfirmPage');
     modal.onDidDismiss(data => {
-      console.log(data);
       if (data != "" && typeof (data) != "undefined") {
         let toast = this.toastCtrl.create({
           message: data,

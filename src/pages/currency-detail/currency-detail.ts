@@ -72,7 +72,6 @@ export class CurrencyDetailPage {
     console.log('ionViewDidLoad EachChartPage');
     if (this.navParams.data.navParams !== null || typeof (this.navParams.data.navParams) !== "undefined") {
       this.chatData = this.navParams.data.navParams;
-      console.log(this.chatData);
       this.latestDate = new Date(parseInt(this.chatData.charData[this.chatData.charData.length - 1].date) * 1000);
       this.latestTimestamp = parseInt(this.chatData.charData[this.chatData.charData.length - 1].date);
     }
@@ -130,7 +129,6 @@ export class CurrencyDetailPage {
       this.disPercent = this.disPercent;
       this.disState = false;
     }
-    // console.log(this.showChartData);
   }
 
   monthlyClick() {
@@ -186,7 +184,6 @@ export class CurrencyDetailPage {
       this.disPercent = this.disPercent;
       this.disState = false;
     }
-    // console.log(this.showChartData);
   }
 
   yearlyClick() {
@@ -239,14 +236,13 @@ export class CurrencyDetailPage {
       this.disPercent = this.disPercent;
       this.disState = false;
     }
-    // console.log(this.showChartData);
   }
 
   convertTimeToDate(unix_timestamp) {
     let dateValue = new Date(unix_timestamp * 1000);
     let year = dateValue.getFullYear();
     // let month = months[dateValue.getMonth()];
-    let month = dateValue.getMonth();
+    let month = dateValue.getMonth() + 1;
     let date = dateValue.getDate();
     // Hours part from the timestamp
     let hours = dateValue.getHours();
@@ -257,7 +253,6 @@ export class CurrencyDetailPage {
 
     // Will display time in 10:30:23 format
     let formattedTime = year + ":" + month + ":" + date + "T" + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    // console.log(formattedTime);
     return formattedTime;
   }
 

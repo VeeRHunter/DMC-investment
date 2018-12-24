@@ -50,8 +50,6 @@ export class ForgotPasswordPage {
   }
 
   signUpUser(forgotInfor) {
-    console.log('ionViewDidLoad');
-    console.log(forgotInfor);
     if (this.userData.email != "" && this.userData.password != "") {
       localStorage.setItem("confirmType", "confirm");
       this.sendForgotRequest();

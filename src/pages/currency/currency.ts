@@ -89,12 +89,10 @@ export class CurrencyPage {
 
     this.chartParam = this.navParams.data.chartData;
     this.invesParam = this.navParams.data.investmentValue;
-    console.log(this.chartParam);
     this.totalInvest = this.invesParam.investmentValue;
     this.disInvest = this.invesParam.disValue;
     this.disPercent = this.invesParam.disPercent;
 
-    console.log(this.invesParam);
 
     this.getChartData();
   }
@@ -180,7 +178,7 @@ export class CurrencyPage {
     let dateValue = new Date(unix_timestamp * 1000);
     let year = dateValue.getFullYear();
     // let month = months[dateValue.getMonth()];
-    let month = dateValue.getMonth();
+    let month = dateValue.getMonth() + 1;
     let date = dateValue.getDate();
     // Hours part from the timestamp
     let hours = dateValue.getHours();
@@ -191,7 +189,6 @@ export class CurrencyPage {
 
     // Will display time in 10:30:23 format
     let formattedTime = year + ":" + month + ":" + date + "T" + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    // console.log(formattedTime);
     return formattedTime;
   }
 

@@ -79,7 +79,6 @@ export class MainPage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      console.log(result);
       if (Object(result).status == "success") {
         this.currentYield = this.changeToDecimal(Object(result).liveFeed.original_investment);
         this.dailyYield = parseFloat(Object(result).liveFeed.daily_yeild);
@@ -203,7 +202,6 @@ export class MainPage {
 
       this.showDataList.push(eachArrayValue);
     }
-    console.log(this.showDataList);
     this.showPage = true;
   }
 

@@ -43,14 +43,12 @@ export class InitialLoginPage {
 
   Login(userProfile) {
     this.clickSignUp = true;
-    console.log(userProfile);
     if (userProfile.valid && this.emailFormControl.valid) {
       let loading = this.loadingCtrl.create({
         content: "Please Wait..."
       });
       loading.present();
       this.apiserver.postData(this.userData).then(result => {
-        console.log(result);
         loading.dismiss();
         if (Object(result).status == "success") {
           localStorage.setItem("loged", "login");

@@ -28,21 +28,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      // fcm.getToken();
-      // console.log(fcm.getToken());
-
-      // // Listen to incoming messages
-      // fcm.listenToNotifications().pipe(
-      //   tap(msg => {
-      //     // show a toast
-      //     const toast = toastCtrl.create({
-      //       message: msg.body,
-      //       duration: 3000
-      //     });
-      //     toast.present();
-      //   })
-      // ).subscribe();
-
     });
   }
 

@@ -55,7 +55,6 @@ export class EmailConfirmPage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      console.log(result);
       this.closeModal(Object(result).detail);
     }, error => {
       loading.dismiss();

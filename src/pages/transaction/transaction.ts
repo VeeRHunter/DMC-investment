@@ -30,7 +30,6 @@ export class TransactionPage {
   ionViewDidLoad() {
 
     console.log('ionViewDidLoad TransactionPage');
-    // console.log(this.changeTimestampToDate(1529064000));
     this.getTransactionList();
   }
 
@@ -48,7 +47,6 @@ export class TransactionPage {
     loading.present();
     this.apiserver.postData(this.userData).then(result => {
       loading.dismiss();
-      console.log(result);
       if (Object(result).status == "success") {
         for (let list of Object(result).transactionList) {
           let tempTranList = { "tranDate": "", "tranDescription": "", "tranValue": "", "tranBalance": "", "tranTimestamp": "", "tranPDF": "" };
@@ -79,12 +77,10 @@ export class TransactionPage {
   }
 
   searchDateClick() {
-    console.log(this.searchDate);
     this.transactionList = new Array();
     let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     if (typeof (this.searchDate) != "undefined" && this.searchDate != "") {
       let searchDate = this.searchDate.split("-")[2] + " " + months[parseInt(this.searchDate.split("-")[1]) - 1] + " " + this.searchDate.split("-")[0];
-      console.log(searchDate);
       for (let list of this.totalData) {
         if (list.tranDate == searchDate) {
           this.transactionList.push(list);

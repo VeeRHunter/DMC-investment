@@ -22,7 +22,6 @@ export class ServerProvider {
 
 
   postData(credentials) {
-    // console.log(credentials);
     return new Promise((resolve, reject) => {
 
       this.http.post(apiurl, credentials).subscribe(res => {
