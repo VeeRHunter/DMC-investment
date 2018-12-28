@@ -55,13 +55,13 @@ page-initial-login {
         .goto-signup {
             // margin: auto;
             text-align: center;
-            color: #5d5d5d; // text-decoration: underline;
+            color: #5d5d5d;
             margin-top: 5px;
         }
     }
     .forgot-password {
-        margin-bottom: 20px;
-        margin-top: 20px;
+        margin-bottom: 45px;
+        margin-top: 10px;
         span {
             font-size: 1.8rem;
             color: #5d5d5d;
@@ -89,22 +89,7 @@ page-initial-login {
             margin-top: 3%;
             overflow-y: auto !important;
         }
-    } // .content-md .scroll-content {
-    //     border: 2px solid #0061ff;
-    //     width: 94%;
-    //     margin-left: 3%;
-    //     height: 96%;
-    //     margin-top: 3%;
-    //     overflow-y: auto !important;
-    // }
-    // .content-ios .scroll-content {
-    //     border: 2px solid #0061ff;
-    //     width: 94%;
-    //     margin-left: 3%;
-    //     height: 94%;
-    //     margin-top: 3%;
-    //     overflow-y: auto !important;
-    // }
+    }
     .item-center{
         margin: auto;
         text-align: center;

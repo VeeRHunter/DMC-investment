@@ -1,6 +1,9 @@
 page-signup {
+    ion-content {
+        background-color: white !important;
+    }
     .user-input-row {
-        width: 80%;
+        width: 96%;
         margin-left: auto;
         margin-right: auto; // height: 35px;
         margin-top: 10px;
@@ -11,13 +14,20 @@ page-signup {
         margin-top: 30px;
     }
     .signup-row {
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         .signup-button {
-            width: 50%;
-            margin: auto;
-            background-color: #ed7d31;
-            border-radius: 5px;
-            color: white;
+            // width: 50%;
+            // margin: auto;
+            // background-color: #ed7d31;
+            // border-radius: 5px;
+            // color: white;
+            width: 100%;
+            font-size: 17px;
+            text-transform: uppercase;
+            margin: auto; // background-color: #ed7d31;
+            // border-radius: 5px; // color: white;
+            background-color: #781e41;
+            color: #C0C0C0;
         }
     }
     .mat-error-show {
@@ -57,6 +67,27 @@ page-signup {
         }
         .mat-error-show {
             bottom: -15px;
+        }
+    }
+    .content-ios {
+        .scroll-content {
+            margin-top: 5%;
+            border: 2px solid #737476;
+            width: 94%;
+            margin-left: 3%;
+            height: 94%;
+            margin-top: 7%;
+            overflow-y: auto !important;
+        }
+    }
+    .content-md {
+        .scroll-content {
+            border: 2px solid #737476;
+            width: 94%;
+            margin-left: 3%;
+            height: 96%;
+            margin-top: 3%;
+            overflow-y: auto !important;
         }
     }
 }

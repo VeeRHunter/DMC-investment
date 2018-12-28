@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header class="header-row">
+<!-- <ion-header class="header-row">
 
   <ion-row class="header-component">
     <ion-col col-2>
@@ -15,40 +15,46 @@
     </ion-col>
   </ion-row>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content padding>
 
-  <ion-row class="logo-row first-row">
-    <img class="logo-image" src="assets/imgs/non-logo.png" />
+  <ion-row class="full-height">
+    <span class="welcom-center">
+
+      <ion-row class="logo-row first-row">
+        <img class="logo-image" src="assets/imgs/non-logo.png" />
+      </ion-row>
+
+      <ion-row class="welcome-row">
+        <span class="small-des">
+          Welcome to your
+          <br> investment vault
+        </span>
+        <span class="big-des">
+          {{lastLoginUserName}}
+        </span>
+      </ion-row>
+    </span>
   </ion-row>
 
-  <ion-row class="welcome-row">
-    <span class="small-des">
-      Welcome to your
-      <br> investment vault
-    </span>
-    <span class="big-des">
-      {{lastLoginUserName}}
-    </span>
-  </ion-row>
 
-  <ion-row class="vault-row">
+  <!-- <ion-row class="vault-row">
     <img src="assets/imgs/BCR-Gif.gif" />
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="log-des">
+  <!-- <ion-row class="log-des">
     <span>
       You last logged on at {{lastLoginTime}}
     </span>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="identy-row" *ngIf="!userVerified">
+  <!-- <ion-row class="identy-row" *ngIf="!userVerified">
     <span (click)="verifyId()">
       Please verify your identity
     </span>
-  </ion-row>
+  </ion-row> -->
 
   <!-- <ion-row class="log-off-row">
     <button mat-raised-button (click)="logOff()">
@@ -56,14 +62,14 @@
     </button>
   </ion-row> -->
 
-  <ion-row class="portfolio-row">
+  <!-- <ion-row class="portfolio-row">
     <button ion-button (click)="gotoLiveFeed()">
       PORTFOLIO
     </button>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="trax-logo ">
+  <!-- <ion-row class="trax-logo ">
     <img src="assets/imgs/big-trax.png " class="trax-logo-image " />
-  </ion-row>
+  </ion-row> -->
 
 </ion-content>

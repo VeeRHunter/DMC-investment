@@ -35,11 +35,14 @@ export class WelcomePage {
       this.lastLoginUserName = localStorage.getItem("lastLoginName");
       this.lastLoginTime = localStorage.getItem("lastLoginTime");
       localStorage.setItem("afterLogin", "");
-      if (localStorage.getItem("userVerified") == "0") {
-        this.userVerified = false;
-      } else if (localStorage.getItem("userVerified") == "1") {
-        this.userVerified = true;
-      }
+      // if (localStorage.getItem("userVerified") == "0") {
+      //   this.userVerified = false;
+      // } else if (localStorage.getItem("userVerified") == "1") {
+      //   this.userVerified = true;
+      // }
+      setTimeout(() => {
+        this.gotoLiveFeed();
+      }, 4000);
     } else {
       this.getData();
     }
@@ -57,6 +60,9 @@ export class WelcomePage {
         this.lastLoginTime = Object(result).lastLoginTime;
         this.lastLoginUserName = Object(result).lastLoginName;
         this.userVerified = Object(result).userVerified;
+        setTimeout(() => {
+          this.gotoLiveFeed();
+        }, 4000);
       } else {
         let toast = this.toastCtrl.create({
           message: Object(result).detail,
@@ -75,6 +81,7 @@ export class WelcomePage {
   }
 
   gotoLiveFeed() {
+    localStorage.setItem("loggedUserName", this.lastLoginUserName);
     this.navCtrl.push('MainPage');
   }
 

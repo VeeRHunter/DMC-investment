@@ -19,7 +19,7 @@ ion-row {
 
 .header-row {
     height: 50px;
-    background-color: #283037;
+    background-color: #781e41;
 }
 
 .header-ios {
@@ -28,7 +28,7 @@ ion-row {
 
 .header-component {
     height: 50px;
-    background-color: #283037;
+    background-color: #781e41;
 }
 
 .full-height {
@@ -39,6 +39,17 @@ ion-row {
     color: white;
     margin: auto;
     font-size: 3rem;
+}
+
+.back-arrow {
+    .menu-icon {
+        color: #5d5d5d;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: unset;
+        font-size: 3rem;
+    }
 }
 
 .content-ios .first-row {
@@ -74,10 +85,8 @@ ion-row {
         // margin: auto;
         margin-left: 8px;
         text-align: left;
-        padding-top: 10px;
-        // font-size: 1.8rem; // color: #1eabc7;
-        color: #4a4a4a;
-        // font-weight: 500;
+        padding-top: 10px; // font-size: 1.8rem; // color: #1eabc7;
+        color: #4a4a4a; // font-weight: 500;
         line-height: 20px;
     }
 }
@@ -121,12 +130,14 @@ ion-row {
 }
 
 ion-content {
-    background-color: #283037 !important;
+    background-color: #781e41 !important;
 }
 
 ion-footer {
     height: 70px;
+    background-color: white;
     .footer-row {
+        background-color: white;
         height: 70px;
         .icon-row {
             img {
@@ -134,10 +145,15 @@ ion-footer {
                 height: 40px;
                 margin: auto;
             }
+            ion-icon {
+                font-size: 35px;
+                margin: auto;
+                color: #943456;
+            }
         }
         .tab-title {
             span {
-                color: white;
+                color: #943456;
                 margin: auto;
             }
         }

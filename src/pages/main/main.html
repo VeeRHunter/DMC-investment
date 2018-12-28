@@ -18,18 +18,61 @@
 </ion-header> -->
 
 
-<ion-content padding>
+<ion-content>
 
-  <ion-row class="page-title" *ngIf="showPage">
-    <span class="small-letter">
-      Investment Value<br>
-    </span>
-    <span>
-      ${{currentYield}}
-    </span>
+  <ion-row class="invest-head" *ngIf="showPage">
+
+    <ion-row class="main-invest">
+      <ion-col col-1>
+        <ion-row class="full-height">
+          <ion-icon name="ios-arrow-round-back-outline" (click)="goback()" class="menu-icon">
+          </ion-icon>
+        </ion-row>
+      </ion-col>
+      <ion-col class="col-3">
+      </ion-col>
+      <ion-col col-4>
+        <ion-row class="full-height">
+          <span class="intest-title">
+            Investments
+          </span>
+        </ion-row>
+      </ion-col>
+      <ion-col col-4>
+        <ion-row class="full-height">
+          <span class="person-info">
+            {{loggedUserName}} &nbsp;
+            <!-- <img src="assets/imgs/veer.jpg" class="person-image"> -->
+            <!-- <span>
+          </span> -->
+          </span>
+          <ion-icon name="ios-contact-outline" class="person-image"></ion-icon>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="page-title">
+      <span class="small-letter">
+        Investment Value<br>
+      </span>
+      <span>
+        ${{currentYield}}
+      </span>
+    </ion-row>
+
+    <ion-row class="invest-percent">
+      <span>
+        <ion-row>
+          <span>
+            + ${{investmentValue}} {{percentGrowth}} &nbsp;
+          </span>
+          <ion-icon [ngClass]="{'red-color':percentState, 'green-color':!percentState}" name="ios-arrow-round-up-outline"></ion-icon>
+        </ion-row>
+      </span>
+    </ion-row>
   </ion-row>
 
-  <ion-row class="current-yield" *ngIf="showPage">
+  <!-- <ion-row class="current-yield" *ngIf="showPage">
     <ion-col col-6>
       <ion-row class="full-height left-element">
         <span class="small-letter">
@@ -51,20 +94,22 @@
         </span>
       </ion-row>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 
-  <ion-row class="total-data" *ngIf="showPage">
+  <ion-row class="total-data" *ngIf="showPage" padding>
     <ion-row class="each-data" *ngFor="let list of showDataList; let i = index" (click)="goCurrency(i)">
-      <ion-row class="border-row" [ngStyle]="{'background-color':list.borderColor}"></ion-row>
+      <!-- <ion-row class="border-row" [ngStyle]="{'background-color':list.borderColor}"></ion-row> -->
       <ion-row class="data-row">
-        <ion-col col-7>
+        <ion-col col-6>
           <ion-row class="full-height">
-            <ion-col col-3>
+            <ion-col col-4>
               <ion-row class="full-height">
-                <img src="{{list.image}}" class="flag-image" />
+                <ion-row class="flag-row">
+                  <img src="{{list.image}}" class="flag-image" />
+                </ion-row>
               </ion-row>
             </ion-col>
-            <ion-col col-9>
+            <ion-col col-8>
               <ion-row class="full-height">
                 <ion-row class="big-title">
                   <span>
@@ -81,20 +126,52 @@
           </ion-row>
         </ion-col>
 
-        <ion-col col-5>
+        <ion-col col-3>
           <ion-row class="full-height right-element">
             <ion-row class="current-currency">
               <span>
                 ${{list.currentCurrency}}
               </span>
             </ion-row>
-            <ion-row class="daily-percent">
+            <!-- <ion-row class="daily-percent">
               <span [ngClass]="{'red-color':list.classState, 'green-color':!list.classState}">
+                {{list.dailyPercent}}
+              </span>
+            </ion-row> -->
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-3>
+          <ion-row class="full-height">
+            <!-- <ion-row class="current-currency">
+              <span>
+                ${{list.currentCurrency}}
+              </span>
+            </ion-row> -->
+            <ion-row class="daily-percent plus-currency" *ngIf="!list.classState">
+              <ion-icon name="ios-trending-up-outline"></ion-icon>
+              <span class="">
+                {{list.dailyPercent}}
+              </span>
+              <!-- <span class="minus-currency" *ngIf="list.classState">
+                <ion-icon name="ios-trending-up-outline"></ion-icon>
+                {{list.dailyPercent}}
+              </span> -->
+            </ion-row>
+
+            <ion-row class="daily-percent minus-currency" *ngIf="list.classState">
+              <!-- <span class="plus-currency" *ngIf="!list.classState">
+                <ion-icon name="ios-trending-up-outline"></ion-icon>
+                {{list.dailyPercent}}
+              </span> -->
+              <ion-icon name="ios-trending-up-outline"></ion-icon>
+              <span class="">
                 {{list.dailyPercent}}
               </span>
             </ion-row>
           </ion-row>
         </ion-col>
+
       </ion-row>
     </ion-row>
   </ion-row>
@@ -106,7 +183,8 @@
     <ion-col col-4>
       <ion-row class="full-height" (click)="goDashBoard()">
         <ion-row class="icon-row">
-          <img src="assets/imgs/dashboard.png" />
+          <!-- <img src="assets/imgs/dashboard.png" /> -->
+          <ion-icon name="md-speedometer"></ion-icon>
         </ion-row>
         <ion-row class="tab-title">
           <span>
@@ -119,7 +197,8 @@
     <ion-col col-4>
       <ion-row class="full-height" (click)="goReceipt()">
         <ion-row class="icon-row">
-          <img src="assets/imgs/receipt.png" />
+          <!-- <img src="assets/imgs/receipt.png" /> -->
+          <ion-icon name="md-paper"></ion-icon>
         </ion-row>
         <ion-row class="tab-title">
           <span>
@@ -132,7 +211,8 @@
     <ion-col col-4>
       <ion-row class="full-height" (click)="logOut()">
         <ion-row class="icon-row">
-          <img src="assets/imgs/logout.png" />
+          <!-- <img src="assets/imgs/logout.png" /> -->
+          <ion-icon name="md-log-out"></ion-icon>
         </ion-row>
         <ion-row class="tab-title">
           <span>

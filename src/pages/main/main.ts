@@ -51,6 +51,8 @@ export class MainPage {
   public orgDataList: any;
   public orgDetailList: any;
 
+  public loggedUserName: any;
+
 
 
 
@@ -67,6 +69,8 @@ export class MainPage {
     console.log('ionViewDidLoad MainPage');
     this.colorList = new Array();
     this.showDataList = new Array();
+    this.loggedUserName = localStorage.getItem('loggedUserName');
+    // console.log(this.loggedUserName);
     this.getLiveData();
   }
 
@@ -127,14 +131,15 @@ export class MainPage {
 
   calculatePercentage() {
     this.percentGrowthValue = ((this.investmentValue - this.currentYield) / this.currentYield) * 100;
-    if (this.investmentValue - this.currentYield > 0) {
-      this.percentGrowth = "+" + this.changeToDecimal(this.percentGrowthValue) + "%";
-    } else if (this.investmentValue - this.currentYield == 0) {
-      this.percentGrowth = this.changeToDecimal(this.percentGrowthValue) + "%";
-    } else {
-      this.percentGrowth = "-" + this.changeToDecimal(this.percentGrowthValue) + "%";
-    }
-    if (this.percentGrowth.includes("-")) {
+    // if (this.investmentValue - this.currentYield > 0) {
+    //   this.percentGrowth = "+" + this.changeToDecimal(this.percentGrowthValue) + "%";
+    // } else if (this.investmentValue - this.currentYield == 0) {
+    //   this.percentGrowth = this.changeToDecimal(this.percentGrowthValue) + "%";
+    // } else {
+    //   this.percentGrowth = "-" + this.changeToDecimal(this.percentGrowthValue) + "%";
+    // }
+    this.percentGrowth = "(" + this.changeToDecimal(this.percentGrowthValue) + "%)";
+    if (this.investmentValue - this.currentYield < 0) {
       this.percentState = true;
     } else {
       this.percentState = false;
@@ -202,6 +207,7 @@ export class MainPage {
 
       this.showDataList.push(eachArrayValue);
     }
+    console.log(this.showDataList);
     this.showPage = true;
   }
 
@@ -261,6 +267,10 @@ export class MainPage {
   logOut() {
     localStorage.setItem("loged", "");
     this.navCtrl.setRoot('InitialLoginPage');
+  }
+
+  goback() {
+    this.navCtrl.setRoot('WelcomePage');
   }
 
 }
