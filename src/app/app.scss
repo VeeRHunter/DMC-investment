@@ -60,16 +60,25 @@ ion-row {
         height: 100%;
         margin: auto;
     }
+    .login-image {
+        width: 75%;
+        height: 100%;
+        margin-right: auto;
+        margin-top: 10%;
+        margin-left: unset;
+    }
 }
 
 .new-logo-title {
     span {
-        margin: auto;
-        text-align: center;
+        // margin: auto;
+        margin-left: 8px;
+        text-align: left;
         padding-top: 10px;
-        font-size: 1.8rem; // color: #1eabc7;
-        color: white;
-        font-weight: 500;
+        // font-size: 1.8rem; // color: #1eabc7;
+        color: #4a4a4a;
+        // font-weight: 500;
+        line-height: 20px;
     }
 }
 

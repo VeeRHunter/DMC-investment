@@ -1,6 +1,9 @@
 page-initial-login {
+    ion-content {
+        background-color: white !important;
+    }
     .user-input-row {
-        width: 80%;
+        width: 96%;
         margin-left: auto;
         margin-right: auto; // height: 35px;
         margin-top: 30px;
@@ -8,7 +11,7 @@ page-initial-login {
         position: relative;
     }
     .user-password-row {
-        width: 80%;
+        width: 96%;
         margin-left: auto;
         margin-right: auto; // height: 35px;
         margin-top: 30px;
@@ -21,10 +24,12 @@ page-initial-login {
     .signup-row {
         margin-bottom: 20px;
         .signup-button {
-            width: 50%;
+            width: 100%;
+            font-size: 17px;
+            text-transform: uppercase;
             margin: auto; // background-color: #ed7d31;
-            border-radius: 5px; // color: white;
-            background-color: #FFD700;
+            // border-radius: 5px; // color: white;
+            background-color: #781e41;
             color: #C0C0C0;
         }
     }
@@ -41,22 +46,68 @@ page-initial-login {
             text-align: center;
             color: white;
         }
-        .goto-signup {
-            margin: auto;
+        .new-user {
+            // margin: auto;
             text-align: center;
-            color: blue;
-            text-decoration: underline;
+            color: #5d5d5d; // text-decoration: underline;
+            margin-top: 5px;
+        }
+        .goto-signup {
+            // margin: auto;
+            text-align: center;
+            color: #5d5d5d; // text-decoration: underline;
             margin-top: 5px;
         }
     }
     .forgot-password {
         margin-bottom: 20px;
-        margin-top: 30px;
+        margin-top: 20px;
         span {
             font-size: 1.8rem;
-            color: blue;
+            color: #5d5d5d;
             text-align: right;
             margin-left: auto;
         }
+    }
+    .content-ios {
+        .scroll-content {
+            margin-top: 5%;
+            border: 2px solid #737476;
+            width: 94%;
+            margin-left: 3%;
+            height: 94%;
+            margin-top: 7%;
+            overflow-y: auto !important;
+        }
+    }
+    .content-md {
+        .scroll-content {
+            border: 2px solid #737476;
+            width: 94%;
+            margin-left: 3%;
+            height: 96%;
+            margin-top: 3%;
+            overflow-y: auto !important;
+        }
+    } // .content-md .scroll-content {
+    //     border: 2px solid #0061ff;
+    //     width: 94%;
+    //     margin-left: 3%;
+    //     height: 96%;
+    //     margin-top: 3%;
+    //     overflow-y: auto !important;
+    // }
+    // .content-ios .scroll-content {
+    //     border: 2px solid #0061ff;
+    //     width: 94%;
+    //     margin-left: 3%;
+    //     height: 94%;
+    //     margin-top: 3%;
+    //     overflow-y: auto !important;
+    // }
+    .item-center{
+        margin: auto;
+        text-align: center;
+        font-size: 16px;
     }
 }
